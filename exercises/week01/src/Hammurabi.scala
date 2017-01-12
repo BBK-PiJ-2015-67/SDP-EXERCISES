@@ -1,5 +1,16 @@
 object Hammurabi {
 
+    var starved = 0 // how many people starved
+    var immigrants = 5 // how many peopl came to the city
+    var population = 100
+    var harvest = 3000 // total bushels harvested
+    var bushelsPerAcre = 3 // amount harvested for each acre planted
+    var rats_ate = 200 // bushels destroyed by rats
+    var bushelsInStorage = 2800
+    var acresOwned = 1000
+    var pricePerAcre = 19 // each acre costs this many bushels
+    var plagueDeaths = 0
+
     def printIntroductoryMessage = {
         println("""
         Congratulations, you are the newest ruler of ancient Samaria, elected
@@ -22,5 +33,15 @@ object Hammurabi {
 
     def hammurabi {
         printIntroductoryMessage
+
+        for (year <- 1 to 10) {
+            println("O great Hammurabi!\n" +
+            "You are in year " + year + " of your ten year rule.\n" +
+            "In the previous year " + starved + "people starved to death.\n" +
+            "In the previous year " + immigrants + "people entered the kingdom.\n" +
+            "The population is now " + population + ".\n" +
+            "We harvested " + harvest + ""
+            )
+        }
     }
 }
