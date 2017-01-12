@@ -49,4 +49,15 @@ object Hammurabi {
       )
     }
   }
+
+  def readInt (message: String): Int = {
+    try {
+      readLine(message).toInt
+    } catch {
+      case _ : Throwable =>
+        println("That's not an integer. Please enter an integer.")
+        readInt(message)
+    }
+  }
+
 }
