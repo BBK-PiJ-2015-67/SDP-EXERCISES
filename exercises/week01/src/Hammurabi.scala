@@ -11,7 +11,7 @@ object Hammurabi {
   var pricePerAcre = 19 // each acre costs this many bushels
   var plagueDeaths = 0
 
-  def printIntroductoryMessage = {
+  def printIntroductoryMessage () {
     println("""
         Congratulations, you are the newest ruler of ancient Samaria, elected
         for a ten year term of office. Your duties are to dispense food, direct
@@ -32,7 +32,7 @@ object Hammurabi {
     """)
   }
 
-  def hammurabi = {
+  def hammurabi () {
     printIntroductoryMessage
 
     for (year <- 1 to 10) {
