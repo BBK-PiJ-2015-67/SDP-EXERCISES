@@ -77,7 +77,7 @@ object Hammurabi {
   def askHowMuchLandToBuy (bushels: Int, price: Int): Int = {
     askUntilValid(
       "How many acres will you buy? ",
-      "O great Hammurabi, we have but " + bushels + " bushels!",
+      "\nO great Hammurabi, we have but " + bushels + " bushels!",
       f => { f < 0 || f * price > bushels }
     )
   }
@@ -85,23 +85,23 @@ object Hammurabi {
   def askHowMuchLandToSell (acres: Int): Int = {
     askUntilValid(
       "How many acres will you sell? ",
-      "O great Hammurabi, we have but " + acres + " acres of land!",
+      "\nO great Hammurabi, we have but " + acres + " acres of land!",
       f => { f < 0 || f > acres }
     )
   }
 
   def askHowMuchGrainToFeed (bushels: Int): Int = {
     askUntilValid(
-      "How much will you feed your people? ",
-      "O great Hammurabi, we have but " + bushels + " bushels!",
+      "\nHow much will you feed your people? ",
+      "\nO great Hammurabi, we have but " + bushels + " bushels!",
       f => { f < 0 || f > bushels }
     )
   }
 
   def askHowManyAcresToPlant (acres: Int): Int = {
     askUntilValid(
-      "How many acres will you plant with seed? ",
-      "O great Hammurabi, we have but " + acres + " bushels!",
+      "\nHow many acres will you plant with seed? ",
+      "\nO great Hammurabi, we have but " + acres + " bushels!",
       f => { f < 0 || f > acres }
     )
   }
