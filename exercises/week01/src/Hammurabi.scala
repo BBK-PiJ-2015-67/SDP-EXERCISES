@@ -1,3 +1,5 @@
+import scala.io.StdIn.readLine
+
 object Hammurabi {
 
   var starved = 0 // how many people starved
@@ -33,9 +35,21 @@ object Hammurabi {
   }
 
   def hammurabi () {
-    printIntroductoryMessage
+    printIntroductoryMessage()
 
     for (year <- 1 to 10) {
+      val acresToBuy = askHowMuchLandToBuy(bushelsInStorage, pricePerAcre)
+      if (acresToBuy > 0) {
+        acresOwned = acresOwned + acresToBuy
+      } else {
+        val acresToSell = askHowMuchLandToSell(acresOwned)
+        acresOwned = acresOwned - acresToSell
+      }
+      val bushelsToFeed = askHowMuchGrainToFeed(bushelsInStorage)
+      bushelsInStorage = bushelsInStorage - bushelsToFeed
+
+      val acresToPlant = askHowManyAcresToPlant(acresOwned)
+
       println("O great Hammurabi!\n" +
         "You are in year " + year + " of your ten year rule.\n" +
         "In the previous year " + starved + " people starved to death.\n" +
@@ -60,4 +74,44 @@ object Hammurabi {
     }
   }
 
+  def askHowMuchLandToBuy (bushels: Int, price: Int): Int = {
+    askUntilValid(
+      "How many acres will you buy? ",
+      "O great Hammurabi, we have but " + bushels + " bushels!",
+      f => { f < 0 || f * price > bushels }
+    )
+  }
+
+  def askHowMuchLandToSell (acres: Int): Int = {
+    askUntilValid(
+      "How many acres will you sell? ",
+      "O great Hammurabi, we have but " + acres + " acres of land!",
+      f => { f < 0 || f > acres }
+    )
+  }
+
+  def askHowMuchGrainToFeed (bushels: Int): Int = {
+    askUntilValid(
+      "How much will you feed your people? ",
+      "O great Hammurabi, we have but " + bushels + " bushels!",
+      f => { f < 0 || f > bushels }
+    )
+  }
+
+  def askHowManyAcresToPlant (acres: Int): Int = {
+    askUntilValid(
+      "How many acres will you plant with seed? ",
+      "O great Hammurabi, we have but " + acres + " bushels!",
+      f => { f < 0 || f > acres }
+    )
+  }
+
+  def askUntilValid(question: String, invalidMsg: String, cond: Int => Boolean): Int = {
+    var response = readInt(question)
+    while (cond(response)) {
+      println(invalidMsg)
+      response = readInt(question)
+    }
+    response
+  }
 }
