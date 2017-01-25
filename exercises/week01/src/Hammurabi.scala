@@ -1,6 +1,14 @@
 import scala.io.StdIn.readLine
+import scala.util.Random
 
 object Hammurabi {
+
+  val YEARS_TO_PLAY = 10
+  val BUSHELS_TO_SURVIVE = 20
+  val ACRES_PERSON_CAN_FARM = 10
+  val BUSHELS_PER_ACRE_TO_FARM = 2
+  val CHANCE_OF_PLAGUE = 15
+
 
   var starved = 0 // how many people starved
   var immigrants = 5 // how many people came to the city
@@ -13,19 +21,22 @@ object Hammurabi {
   var pricePerAcre = 19 // each acre costs this many bushels
   var plagueDeaths = 0
 
+  /**
+    * Prints the game's introductory message
+    */
   def printIntroductoryMessage () {
-    println("""
+    println(s"""
         Congratulations, you are the newest ruler of ancient Samaria, elected
         for a ten year term of office. Your duties are to dispense food, direct
         farming, and buy and sell land as needed to support your people. Watch
         out for rat infestations and the plague! Grain is the general currency,
         measured in bushels. The following will help you in your decisions:
 
-            * Each person needs at least 20 bushels of grain per year to survive.
+            * Each person needs at least $BUSHELS_TO_SURVIVE bushels of grain per year to survive.
 
-            * Each person can farm at most 10 acres of land.
+            * Each person can farm at most $ACRES_PERSON_CAN_FARM acres of land.
 
-            * It takes 2 bushels of grain to farm an acre of land.
+            * It takes $BUSHELS_PER_ACRE_TO_FARM bushels of grain to farm an acre of land.
 
             * The market price for land fluctuates yearly.
 
@@ -34,10 +45,13 @@ object Hammurabi {
     """)
   }
 
+  /**
+    * Runs the hammurabi game
+    */
   def hammurabi () {
     printIntroductoryMessage()
 
-    for (year <- 1 to 10) {
+    for (year <- 1 to YEARS_TO_PLAY) {
       val acresToBuy = askHowMuchLandToBuy(bushelsInStorage, pricePerAcre)
       if (acresToBuy > 0) {
         acresOwned = acresOwned + acresToBuy
@@ -46,9 +60,14 @@ object Hammurabi {
         acresOwned = acresOwned - acresToSell
       }
       val bushelsToFeed = askHowMuchGrainToFeed(bushelsInStorage)
-      bushelsInStorage = bushelsInStorage - bushelsToFeed
+      bushelsInStorage = bushelsInStorage - (bushelsToFeed * population)
 
-      val acresToPlant = askHowManyAcresToPlant(acresOwned)
+      val acresToPlant = askHowManyAcresToPlant(acresOwned, bushelsInStorage, population)
+
+      plagueDeaths = getPlagueDeathCount(population)
+      population = population - plagueDeaths
+
+      starved = getStarvationCount(population, bushelsToFeed)
 
       println("O great Hammurabi!\n" +
         "You are in year " + year + " of your ten year rule.\n" +
@@ -64,6 +83,13 @@ object Hammurabi {
     }
   }
 
+  /**
+    * Asks for an Int from the console and repeats until an Int
+    * has been entered
+    *
+    * @param message A String containing the question the Int will match
+    * @return The inputted Int
+    */
   def readInt (message: String): Int = {
     try {
       readLine(message).toInt
@@ -98,14 +124,17 @@ object Hammurabi {
     )
   }
 
-  def askHowManyAcresToPlant (acres: Int): Int = {
-    askUntilValid(
-      "\nHow many acres will you plant with seed? ",
-      "\nO great Hammurabi, we have but " + acres + " bushels!",
-      f => { f < 0 || f > acres }
-    )
-  }
-
+  /**
+    * Support function that takes a question, error message, and a validator function
+    * and then reads an Int from the console. The function will evaluate the input and
+    * repeat the question until valid input has been provided (fails the condition in the
+    * passed function)
+    *
+    * @param question A String containing the question being asked
+    * @param invalidMsg A String that will be displayed if the input is invalid
+    * @param cond Function to evaluate the input Int and returns true if the value is invalid, false if it's valid
+    * @return The validated input
+    */
   def askUntilValid(question: String, invalidMsg: String, cond: Int => Boolean): Int = {
     var response = readInt(question)
     while (cond(response)) {
@@ -113,5 +142,37 @@ object Hammurabi {
       response = readInt(question)
     }
     response
+  }
+
+  def askHowManyAcresToPlant (acres: Int, bushels: Int, people: Int): Int = {
+    val question = "\nHow many acres will you plant with seed? "
+    var acresToPlant = readInt(question)
+
+    while (acresToPlant < 0 ||
+      acresToPlant > people * ACRES_PERSON_CAN_FARM ||
+      acresToPlant * BUSHELS_PER_ACRE_TO_FARM > bushels) {
+
+      if (acresToPlant > people * ACRES_PERSON_CAN_FARM) {
+        println("\nO great Hammurabi, we have but " + people + " with which to farm!")
+        acresToPlant = readInt(question)
+      } else if (acresToPlant * BUSHELS_PER_ACRE_TO_FARM > bushels) {
+        println("\nO great Hammurabi, we have but " + bushels + " with which to farm!")
+        acresToPlant = readInt(question)
+      } else {
+        println("\nO great Hammurabi, surely you jest!")
+        acresToPlant = readInt(question)
+      }
+    }
+    acresToPlant
+  }
+
+  def getPlagueDeathCount (people: Int): Int = {
+    if (Random.nextInt(100) < CHANCE_OF_PLAGUE) people / 2 else 0
+  }
+
+  def getStarvationCount (people: Int, bushels: Int): Int = {
+    var bushelsFedPerPerson = bushels / people
+
+    0
   }
 }
