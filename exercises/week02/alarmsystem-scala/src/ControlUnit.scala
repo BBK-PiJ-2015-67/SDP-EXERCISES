@@ -2,6 +2,7 @@ import scala.collection.mutable
 
 object ControlUnit
 
+// This set of comments is to answer the question in Exercise 3.
 // Responsibilities:
 // 1. maintain list of sensors
 // 2. initialise sensors
