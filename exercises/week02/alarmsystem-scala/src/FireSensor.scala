@@ -8,14 +8,14 @@ class FireSensor () extends Sensor {
 
   private var batteryPercentage: Double = 100
 
-  override def isTriggered: Boolean = Random.nextInt(100) < ChanceOfTriggering
+  override def isTriggered: Boolean = {
+    batteryPercentage -= BatteryDrainPerPoll
+    Random.nextInt(100) < ChanceOfTriggering
+  }
 
   override def getLocation: String = Location
 
   override def getSensorType: String = SensorType
 
-  override def getBatteryPercentage: Double = {
-    batteryPercentage -= BatteryDrainPerPoll
-    batteryPercentage
-  }
+  override def getBatteryPercentage: Double = batteryPercentage
 }
