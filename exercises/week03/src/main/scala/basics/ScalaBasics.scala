@@ -50,7 +50,15 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minWhile(r: Array[Int]): Int = ???
+  def minWhile(r: Array[Int]): Int = {
+    var result = Int.MaxValue
+    var i = 0
+    while (i < r.length) {
+      if (r(i) < result) result = r(i)
+      i += 1
+    }
+    result
+  }
 
   /**
    * Write a function that returns the minimum integer in the Array r.
@@ -80,7 +88,7 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minRecursive(r: Array[Int]): Int = ???
+  def minRecursive(r: Array[Int]): Int = r.min
 
   /**
    * Return the base 36 equivalent of the BitInt b.
