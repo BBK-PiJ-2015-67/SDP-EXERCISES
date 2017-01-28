@@ -154,7 +154,13 @@ object ScalaBasics {
    * @param s the potential palindrome
    * @return true if s is a palindrome; false otherwise
    */
-  def isPalindrome(s: String): Boolean = ???
+  def isPalindrome(s: String): Boolean = {
+    val normalised = for {
+      c <- s.toLowerCase
+      if c isLetter
+    } yield c
+    normalised.reverse == normalised
+  }
 
   /**
    * You don't have to complete this one as we've removed it from the list
