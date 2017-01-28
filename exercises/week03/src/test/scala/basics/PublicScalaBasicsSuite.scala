@@ -24,7 +24,7 @@ class PublicScalaBasicsSuite extends FunSuite {
     }
   }
 
-  test("[4] The oddRange function should return a range of all odd integers from 1 to n") {
+  test("[3] The oddRange function should return a range of all odd integers from 1 to n") {
     for (n <- 1 to 1000) {
       val r = oddRange(n)
       assert(r.head == 1, "The first element in your range is not 1")
@@ -34,7 +34,7 @@ class PublicScalaBasicsSuite extends FunSuite {
     }
   }
 
-  test("[5] The minWhile function should return the minimum integer in an array using a while loop") {
+  test("[4] The minWhile function should return the minimum integer in an array using a while loop") {
     TreeTraversals.getMethod("src/main/scala/basics/ScalaBasics.scala", "minWhile") match {
       case Some(method) =>
         assert(TreeTraversals.hasWhileLoop(method), "Your implementation did not include a while loop")
@@ -60,7 +60,7 @@ class PublicScalaBasicsSuite extends FunSuite {
     assert(minFor(Array(99, 98, 45, 100, 107, 12, 1012, 15, 45, 45, 909)) == 12)
   }
 
-  test("[5] The minRecursive function should return the minimum integer in an array using recursion") {
+  test("[6] The minRecursive function should return the minimum integer in an array using recursion") {
     TreeTraversals.getMethod("src/main/scala/basics/ScalaBasics.scala", "minRecursive") match {
       case Some(method) =>
         assert(!TreeTraversals.hasValDef(method), "Your implementation used a val declaration")
@@ -75,13 +75,13 @@ class PublicScalaBasicsSuite extends FunSuite {
     assert(minRecursive(Array(99, 98, 45, 100, 107, 12, 1012, 15, 45, 45, 909)) == 12)
   }
 
-  test("[3] The base36 function should return the base 36 equivalent of the given BigInt") {
+  test("[7] The base36 function should return the base 36 equivalent of the given BigInt") {
     assert(base36(BigInt("123456789")) == "21i3v9")
     assert(base36(BigInt("9876543212")) == "4jc8lik")
     assert(base36(BigInt("123456789123456789")) == "xrls1yk9rf9")
   }
 
-  test("[5] The splitInHalf function should split a string in half") {
+  test("[8] The splitInHalf function should split a string in half") {
     def check(s: String, ls: String, rs: String) = {
       val (l, r) = splitInHalf(s)
       assert(l == ls, s"$l is not the same as $ls")
@@ -91,7 +91,7 @@ class PublicScalaBasicsSuite extends FunSuite {
     check("sloppy", "slo", "ppy")
   }
 
-  test("[6] isPalindrome should return true if a string is a palindrome") {
+  test("[9] isPalindrome should return true if a string is a palindrome") {
     TreeTraversals.getMethod("src/main/scala/basics/ScalaBasics.scala", "isPalindrome") match {
       case Some(method) =>
         assert(!TreeTraversals.hasVarDef(method), "Your implementation used a var declaration")
