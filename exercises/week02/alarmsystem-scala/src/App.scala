@@ -1,7 +1,6 @@
 import java.io.IOException
 import java.util.Scanner
 
-import scala.collection.mutable.ListBuffer
 
 object App {
   private val EXIT: String = "exit"
@@ -9,9 +8,7 @@ object App {
 
   @throws[IOException]
   def main(args: Array[String]) {
-    val sensors = new ListBuffer[Sensor]()
-    sensors += new FireSensor()
-    sensors += new SmokeSensor()
+    val sensors = List(new FireSensor, new SmokeSensor)
     val controlUnit: ControlUnit = new ControlUnit(sensors)
     val scanner: Scanner = new Scanner(System.in)
     var input: String = ""
