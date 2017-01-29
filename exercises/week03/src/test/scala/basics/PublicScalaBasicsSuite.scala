@@ -119,23 +119,19 @@ class PublicScalaBasicsSuite extends FunSuite {
       ".txt").getLines.toArray
     val lines2 = io.Source.fromFile("/Users/lmignot/School/SDP/Portfolio/exercises/week03/src/test/resources/words2" +
       ".txt").getLines.toArray
-    val lines3 = io.Source.fromFile("/Users/lmignot/School/SDP/Portfolio/exercises/week03/src/test/resources/words3" +
-      ".txt").getLines.toArray
-    val lines4 = io.Source.fromFile("/Users/lmignot/School/SDP/Portfolio/exercises/week03/src/test/resources/words4" +
-      ".txt").getLines.toArray
-    val lines5 = io.Source.fromFile("/Users/lmignot/School/SDP/Portfolio/exercises/week03/src/test/resources/words5" +
-      ".txt").getLines.toArray
 
     val file1WordCount = wordCounter(lines1)
     val file2WordCount = wordCounter(lines2)
-    val file3WordCount = wordCounter(lines3)
-    val file4WordCount = wordCounter(lines4)
-    val file5WordCount = wordCounter(lines5)
 
-    assert(file1WordCount.contains("gun"), "Map for file1 contains the word gun")
-    assert(file1WordCount.contains("Tec-9,"), "Map for file1 contains the word Tec-9,")
-    assert(file1WordCount.get("gun").contains(4), "Count for the word gun equals 4")
-    assert(file1WordCount.get("Tec-9,").contains(1), "Count for the word Tec-9, equals 1")
+    assert(file1WordCount.contains("gun"), "Map for file1 contains the word 'gun'")
+    assert(file1WordCount.get("gun").contains(4), "Count for the word 'gun' equals 4")
+    assert(file1WordCount.contains("Tec-9,"), "Map for file1 contains the word 'Tec-9,'")
+    assert(file1WordCount.get("Tec-9,").contains(1), "Count for the word 'Tec-9,' equals 1")
+
+    assert(file2WordCount.contains("I"), "Map for file2 contains the word 'I'")
+    assert(file2WordCount.get("I").contains(2), "Count for the word 'I' equals 2")
+    assert(file2WordCount.contains("it"), "Map for file2 contains the word 'it'")
+    assert(file2WordCount.get("it").contains(8), "Count for the word 'it' equals 8")
   }
 
   // test("[3] sumChars should sum up the characters as integers from its parameters") {
