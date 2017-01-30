@@ -27,7 +27,7 @@ object PrintClassSyntax {
     val constructors = clsType.members.filter(m => {
       m.isConstructor
     })
-    constructors.foreach(c => println(c.name)m/)
+    constructors.foreach(c => println(c.name))
 
 //    println("\nDeclarations:")
 //    println(tt.decls.mkString("\n"))
