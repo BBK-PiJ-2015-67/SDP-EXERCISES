@@ -97,7 +97,7 @@ object Funcs {
     case _ => foldLeft(ls, 1.0)(_ * _)
   }
 
-  def length[A](ls: List[A]): Int = ???
+  def length[A](ls: List[A]): Int = foldLeft(ls, 0)((acc, _) => acc + 1)
 
   def reverse[A](ls: List[A]): List[A] = ???
 
