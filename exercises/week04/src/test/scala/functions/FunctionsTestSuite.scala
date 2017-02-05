@@ -107,11 +107,22 @@ class FunctionsTestSuite extends FunSuite {
     assert(product(List(2.5, 2.0, 7.8)) == 39.0)
   }
 
-//
-//  test("length calculates the length") {
-//    assert(length("Hello".toList) == 5)
-//  }
-//
+  test("length calculates the length") {
+    assert(length(List("H", "e", "l", "l", "o")) == 5)
+  }
+
+  test("length of empty List is 0") {
+    assert(length(List()) == 0)
+  }
+
+  test("length of Nil is 0") {
+    assert(length(Nil) == 0)
+  }
+
+  test("length works on a mixed List") {
+    assert(length(List("A", 1, "B")) == 3)
+  }
+
 //  test("reverse reverses the list") {
 //    assert(reverse("Hello".toList) == "olleH".toList)
 //  }
