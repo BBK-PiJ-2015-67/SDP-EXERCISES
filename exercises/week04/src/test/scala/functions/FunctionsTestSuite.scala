@@ -62,11 +62,19 @@ class FunctionsTestSuite extends FunSuite {
     }
   }
 
-//  // Folding
-//  test("foldLeft computes the correct value") {
-//    assert(foldLeft(List("H", "e", "l", "l", "o"), "")(_ + _) == "Hello")
-//  }
-//
+  // Folding
+  test("foldLeft computes the correct value") {
+    assert(foldLeft(List("H", "e", "l", "l", "o"), "")(_ + _) == "Hello")
+  }
+
+  test("foldLeft computes the correct value given an empty list") {
+    assert(foldLeft(List(), "A")(_ + _) == "A")
+  }
+
+  test("foldLeft computes the correct value given a Nil list") {
+    assert(foldLeft(Nil, "A")(_ + _) == "A")
+  }
+
 //  test("sum produces the correct sum") {
 //    assert(sum(List(1.0, 2.0, 3.0, -3.0, -2.0, -1.0)) == 0.0)
 //  }
