@@ -9,6 +9,12 @@ class FunctionsTestSuite extends FunSuite {
     assert(tail(List(1, 2, 3, 4)) == List(2, 3, 4))
   }
 
+  test("Tail throws exception on empty List") {
+    assertThrows[IllegalArgumentException] {
+      tail(List())
+    }
+  }
+
   test("setHead changes the first element of the list") {
     assert(setHead(List("A", "B", "C"), "0") == List("0", "B", "C"))
   }
