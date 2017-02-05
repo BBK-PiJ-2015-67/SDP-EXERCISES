@@ -87,9 +87,26 @@ class FunctionsTestSuite extends FunSuite {
     assert(sum(Nil) == 0.0)
   }
 
-//  test("product produces the correct product") {
-//    assert(product(List(1.0, 2.0, 3.0, 4.0, 5.0)) == 120.0)
-//  }
+  test("product produces the correct product") {
+    assert(product(List(1.0, 2.0, 3.0, 4.0, 5.0)) == 120.0)
+  }
+
+  test("product produces the correct product given an empty list") {
+    assert(product(List()) == 0.0)
+  }
+
+  test("product produces the correct product given Nil") {
+    assert(product(Nil) == 0.0)
+  }
+
+  test("product produces the correct negative product") {
+    assert(product(List(-3.0, 6.0, 3.0)) == -54.0)
+  }
+
+  test("product produces the correct combined product") {
+    assert(product(List(2.5, 2.0, 7.8)) == 39.0)
+  }
+
 //
 //  test("length calculates the length") {
 //    assert(length("Hello".toList) == 5)
