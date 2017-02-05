@@ -75,10 +75,18 @@ class FunctionsTestSuite extends FunSuite {
     assert(foldLeft(Nil, "A")(_ + _) == "A")
   }
 
-//  test("sum produces the correct sum") {
-//    assert(sum(List(1.0, 2.0, 3.0, -3.0, -2.0, -1.0)) == 0.0)
-//  }
-//
+  test("sum produces the correct sum") {
+    assert(sum(List(1.0, 2.0, 3.0, -3.0, -2.0, -1.0)) == 0.0)
+  }
+
+  test("sum produces the correct sum given an empty list") {
+    assert(sum(List()) == 0.0)
+  }
+
+  test("sum produces the correct sum given Nil") {
+    assert(sum(Nil) == 0.0)
+  }
+
 //  test("product produces the correct product") {
 //    assert(product(List(1.0, 2.0, 3.0, 4.0, 5.0)) == 120.0)
 //  }
