@@ -41,7 +41,10 @@ object Funcs {
     * @param n  : Int the number of elements to drop.
     * @return a list with the first n elements of ls removed, or an empty list.
     */
-  def drop[A](ls: List[A], n: Int): List[A] = ???
+  def drop[A](ls: List[A], n: Int): List[A] = (ls, n) match {
+    case (l, i) if i < 1 => l
+    case (l, i) => drop(tail(l), i - 1)
+  }
 
   /**
     * init takes a list and removes the last element.
