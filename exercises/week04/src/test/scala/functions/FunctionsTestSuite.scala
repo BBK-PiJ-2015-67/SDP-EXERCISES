@@ -16,6 +16,12 @@ class FunctionsTestSuite extends FunSuite {
     }
   }
 
+  test("Tail throws exception on Nil List") {
+    assertThrows[IllegalArgumentException] {
+      tail(Nil)
+    }
+  }
+
   test("setHead changes the first element of the list") {
     assert(setHead(List("A", "B", "C"), "0") == List("0", "B", "C"))
   }
@@ -40,11 +46,22 @@ class FunctionsTestSuite extends FunSuite {
     assert(drop(List(1, 2, 3), 3) == List())
   }
 
+  test("init removes the last element") {
+    assert(init(List("A", "B", "C", "D")) == List("A", "B", "C"))
+  }
 
-//  test("init removes the last element") {
-//    assert(init(List("A", "B", "C", "D")) == List("A", "B", "C"))
-//  }
-//
+  test("init throws if list is empty") {
+    assertThrows[IllegalArgumentException] {
+      init(List())
+    }
+  }
+
+  test("init throws if parameter is Nil") {
+    assertThrows[IllegalArgumentException] {
+      init(Nil)
+    }
+  }
+
 //  // Folding
 //  test("foldLeft computes the correct value") {
 //    assert(foldLeft(List("H", "e", "l", "l", "o"), "")(_ + _) == "Hello")
