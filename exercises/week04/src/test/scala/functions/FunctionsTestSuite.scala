@@ -139,10 +139,10 @@ class FunctionsTestSuite extends FunSuite {
     assert(reverse(Nil) == List())
   }
 
-//  test("flatten flattens the nested list") {
-//    assert(flatten(List(List(1, 2, 3), List(4, 5, 6))) == List(1, 2, 3, 4, 5, 6))
-//  }
-//
+  test("flatten flattens the nested list") {
+    assert(flatten(List(List(1, 2, 3), List(4, 5, 6))) == List(1, 2, 3, 4, 5, 6))
+  }
+
 //  // Map and Filter
 //  test("map creates a new list of the correct values") {
 //    assert(map((1 to 10).toList)(_ + 1) == (2 to 11).toList)
