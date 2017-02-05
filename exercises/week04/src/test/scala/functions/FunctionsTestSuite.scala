@@ -1,6 +1,7 @@
 package functions
 
 import functions.Funcs._
+import support._
 import org.scalatest.FunSuite
 
 class FunctionsTestSuite extends FunSuite {

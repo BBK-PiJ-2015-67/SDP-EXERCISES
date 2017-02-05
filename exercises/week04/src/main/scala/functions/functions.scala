@@ -1,5 +1,7 @@
 package functions
 
+import support._
+
 object Funcs {
 
   // FUNCTIONAL BASICS:
@@ -12,7 +14,10 @@ object Funcs {
     * @param ls : support.List[A] the list to process
     * @return A list containing all but the first element of ls
     */
-  def tail[A](ls: List[A]): List[A] = ???
+  def tail[A](ls: List[A]): List[A] = ls match {
+    case Nil => throw new IllegalArgumentException
+    case Cons(_, tl) => tl
+  }
 
   /**
     * setHead replaces the first value in a list with a given value. If the
@@ -23,7 +28,10 @@ object Funcs {
     * @return a list whose head is 'a' and whose tail is all but the first
     *         element of ls.
     **/
-  def setHead[A](ls: List[A], a: A): List[A] = ???
+  def setHead[A](ls: List[A], a: A): List[A] = ls match {
+    case Nil => List(a)
+    case _ => Cons(a, tail(ls))
+  }
 
   /**
     * drop removes n elements from the given list. If n is greater than the
