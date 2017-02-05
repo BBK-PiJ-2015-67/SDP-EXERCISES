@@ -90,7 +90,7 @@ object Funcs {
     * the sublists into one long list. For example, flatten(support.List(support.List(1,2,3),
     * support.List(4,5,6))) produces support.List(1,2,3,4,5,6).
     */
-  def sum(ls: List[Double]): Double = ???
+  def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)(_ + _)
 
   def product(ls: List[Double]): Double = ???
 
