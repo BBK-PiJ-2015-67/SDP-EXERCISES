@@ -123,10 +123,22 @@ class FunctionsTestSuite extends FunSuite {
     assert(length(List("A", 1, "B")) == 3)
   }
 
-//  test("reverse reverses the list") {
-//    assert(reverse("Hello".toList) == "olleH".toList)
-//  }
-//
+  test("reverse reverses the list") {
+    assert(reverse(List("H", "e", "l", "l", "o")) == List("o", "l", "l", "e", "H"))
+  }
+
+  test("reverse reverses the list of Ints") {
+    assert(reverse(List(1, 2, 3, 4, 5, 6)) == List(6, 5, 4, 3, 2, 1))
+  }
+
+  test("given an empty List, reverse returns an empty List") {
+    assert(reverse(List()) == List())
+  }
+
+  test("given Nil, reverse returns an empty List") {
+    assert(reverse(Nil) == List())
+  }
+
 //  test("flatten flattens the nested list") {
 //    assert(flatten(List(List(1, 2, 3), List(4, 5, 6))) == List(1, 2, 3, 4, 5, 6))
 //  }
