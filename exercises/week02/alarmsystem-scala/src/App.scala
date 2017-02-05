@@ -8,10 +8,12 @@ object App {
 
   @throws[IOException]
   def main(args: Array[String]) {
-    val sensors = List(new FireSensor, new SmokeSensor)
-    val controlUnit: ControlUnit = new ControlUnit(sensors)
+    lazy val sensors = List(new FireSensor, new SmokeSensor)
+    lazy val controlUnit: ControlUnit = new ControlUnit(sensors)
+
     val scanner: Scanner = new Scanner(System.in)
     var input: String = ""
+
     while (input != EXIT) {
       println("Type \"poll\" to poll all sensors once or \"exit\" to exit")
       input = scanner.nextLine
