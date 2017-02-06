@@ -91,20 +91,20 @@ class FunctionsTestSuite extends FunSuite {
     assert(product(List(1.0, 2.0, 3.0, 4.0, 5.0)) == 120.0)
   }
 
-  test("product produces the correct product given an empty list") {
+  test("given an empty list, product produces 0.0") {
     assert(product(List()) == 0.0)
   }
 
-  test("product produces the correct product given Nil") {
+  test("given Nil, product produces 0.0") {
     assert(product(Nil) == 0.0)
   }
 
-  test("product produces the correct negative product") {
+  test("given negative and positive input, produces the correct negative product") {
     assert(product(List(-3.0, 6.0, 3.0)) == -54.0)
   }
 
-  test("product produces the correct combined product") {
-    assert(product(List(2.5, 2.0, 7.8)) == 39.0)
+  test("given 0.0, product produces the correct product") {
+    assert(product(List(0.0)) == 0.0)
   }
 
   test("length calculates the length") {
