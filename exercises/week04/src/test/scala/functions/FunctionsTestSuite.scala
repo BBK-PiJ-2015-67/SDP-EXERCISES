@@ -152,10 +152,10 @@ class FunctionsTestSuite extends FunSuite {
     assert(map(List("a","b","c"))(_.toUpperCase()) == List("A","B","C"))
   }
 
-//  test("filter filters the list") {
-//    assert(filter((-5 to 5).toList)(_ > 0) == (1 to 5).toList)
-//  }
-//
+  test("filter filters the list") {
+    assert(filter(List(-5,-4,-3,-2,-1,0,1,2,3,4,5))(_ > 0) == List(1,2,3,4,5))
+  }
+
 //  test("flatMap maps and flattens") {
 //    assert(flatMap((1 to 5).toList)(x => (x to 5).toList) ==
 //      List(1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5, 5))
