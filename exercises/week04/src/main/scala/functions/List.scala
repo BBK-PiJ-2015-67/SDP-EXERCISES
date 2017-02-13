@@ -1,12 +1,9 @@
-// I did not write the below code, it was provided in the class notes
-// Not sure who to correctly reference
+// Basic List implementation as per notes
 
 package support
 
 sealed trait List[+A]
-
 case object Nil extends List[Nothing]
-
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
 
 object List {

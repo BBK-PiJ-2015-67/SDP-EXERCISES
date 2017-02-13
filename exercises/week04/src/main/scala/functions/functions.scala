@@ -1,5 +1,4 @@
 package functions
-
 import support._
 
 object Funcs {
@@ -162,7 +161,7 @@ object Funcs {
     * 3) Find the variance.
     * Which methods that we've already defined can you use? (At least one!)
     * @param ls     : support.List[Double] a list of values, whose length is greater than 0.
-    * @param return the variance of the input.
+    * @return the variance of the input.
     */
   def variance(ls: List[Double]): Double = ???
 }

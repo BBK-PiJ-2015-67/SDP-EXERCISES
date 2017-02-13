@@ -143,11 +143,15 @@ class FunctionsTestSuite extends FunSuite {
     assert(flatten(List(List(1, 2, 3), List(4, 5, 6))) == List(1, 2, 3, 4, 5, 6))
   }
 
-//  // Map and Filter
-//  test("map creates a new list of the correct values") {
-//    assert(map((1 to 10).toList)(_ + 1) == (2 to 11).toList)
-//  }
-//
+  // Map and Filter
+  test("map creates a new list of the correct values") {
+    assert(map(List(1,2,3,4,5,6,7,8,9,10))(_ + 1) == List(2,3,4,5,6,7,8,9,10,11))
+  }
+
+  test("map applies the function correctly") {
+    assert(map(List("a","b","c"))(_.toUpperCase()) == List("A","B","C"))
+  }
+
 //  test("filter filters the list") {
 //    assert(filter((-5 to 5).toList)(_ > 0) == (1 to 5).toList)
 //  }
