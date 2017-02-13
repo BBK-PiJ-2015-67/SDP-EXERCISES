@@ -1,13 +1,12 @@
 package functions
 
 import functions.Funcs._
-import support._
 import org.scalatest.FunSuite
 
 class FunctionsTestSuite extends FunSuite {
   // Basics
   test("Tail removes the first element") {
-    assert(tail(List(1, 2, 3, 4)) == List(2, 3, 4))
+    assert(tail((1 to 4).toList) == (2 to 4).toList)
   }
 
   test("Tail throws exception on empty List") {
@@ -64,7 +63,7 @@ class FunctionsTestSuite extends FunSuite {
 
   // Folding
   test("foldLeft computes the correct value") {
-    assert(foldLeft(List("H", "e", "l", "l", "o"), "")(_ + _) == "Hello")
+    assert(foldLeft("Hello".toList, "")(_ + _) == "Hello")
   }
 
   test("foldLeft computes the correct value given an empty list") {
@@ -108,7 +107,7 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("length calculates the length") {
-    assert(length(List("H", "e", "l", "l", "o")) == 5)
+    assert(length("Hello".toList) == 5)
   }
 
   test("length of empty List is 0") {
@@ -124,11 +123,11 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("reverse reverses the list") {
-    assert(reverse(List("H", "e", "l", "l", "o")) == List("o", "l", "l", "e", "H"))
+    assert(reverse("Hello".toList) == "olleH".toList)
   }
 
   test("reverse reverses the list of Ints") {
-    assert(reverse(List(1, 2, 3, 4, 5, 6)) == List(6, 5, 4, 3, 2, 1))
+    assert(reverse((1 to 6).toList) == List(6, 5, 4, 3, 2, 1))
   }
 
   test("given an empty List, reverse returns an empty List") {
@@ -145,7 +144,7 @@ class FunctionsTestSuite extends FunSuite {
 
   // Map and Filter
   test("map creates a new list of the correct values") {
-    assert(map(List(1,2,3,4,5,6,7,8,9,10))(_ + 1) == List(2,3,4,5,6,7,8,9,10,11))
+    assert(map((1 to 10).toList)(_ + 1) == (2 to 11).toList)
   }
 
   test("map applies the function correctly") {
@@ -153,7 +152,7 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("filter filters the list") {
-    assert(filter(List(-5,-4,-3,-2,-1,0,1,2,3,4,5))(_ > 0) == List(1,2,3,4,5))
+    assert(filter((-5 to 5).toList)(_ > 0) == (1 to 5).toList)
   }
 
 //  test("flatMap maps and flattens") {
