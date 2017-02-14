@@ -83,15 +83,15 @@ object Funcs {
 
   /**
     * Use your implementation of foldLeft to implement these functions:
-    * - sum: Takes a support.List[Double] and produces the sum of all elements
-    * - product: Takes a support.List[Double] and produces the product of all elements
+    * - sum: Takes a List[Double] and produces the sum of all elements
+    * - product: Takes a List[Double] and produces the product of all elements
     * - length: Takes a List[A] and finds the length of the list.
     * - reverse: Takes a List[A] and produces a new list with the elements of
-    * the first list in reverse order. That is, reverse(support.List(1,2,3)) =
-    * support.List(3,2,1).
-    * - flatten: Takes a support.List[List[A]] and produces a List[A] by joining all
-    * the sublists into one long list. For example, flatten(support.List(support.List(1,2,3),
-    * support.List(4,5,6))) produces support.List(1,2,3,4,5,6).
+    * the first list in reverse order. That is, reverse(List(1,2,3)) =
+    * List(3,2,1).
+    * - flatten: Takes a List[List[A]] and produces a List[A] by joining all
+    * the sublists into one long list. For example, flatten(List(List(1,2,3),
+    * List(4,5,6))) produces List(1,2,3,4,5,6).
     */
   def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)(_ + _)
 
@@ -141,12 +141,12 @@ object Funcs {
   }
 
   /**
-    * flatMap is very similar to map. However, the function returns a support.List,
+    * flatMap is very similar to map. However, the function returns a List,
     * and flatMap flattens all of the resulting lists into one.
     *
     * @param ls : List[A] the list to be changed.
-    * @param f  : A => support.List[B] the function to be applied.
-    * @return a support.List[B] containing the flattened results of applying f to all
+    * @param f  : A => List[B] the function to be applied.
+    * @return a List[B] containing the flattened results of applying f to all
     *         elements of ls.
     */
   def flatMap[A, B](ls: List[A])(f: A => List[B]): List[B] = ???
@@ -154,19 +154,19 @@ object Funcs {
   // COMBINING FUNCTIONS
 
   /**
-    * maxAverage takes a support.List[(Double,Double)] (a list of pairs of real
+    * maxAverage takes a List[(Double,Double)] (a list of pairs of real
     * numbers) and returns the average value of the largest value in each pair.
-    * For example, the maxAverage of support.List((1,4), (8, 0)) is (8 + 4)/2 = 6.0.
+    * For example, the maxAverage of List((1,4), (8, 0)) is (8 + 4)/2 = 6.0.
     * You must use the methods you wrote above, particularly map and foldLeft.
     *
-    * @param ls : support.List[(Double,Double)] a list of pairs of real numbers, whose
+    * @param ls : List[(Double,Double)] a list of pairs of real numbers, whose
     *           length is greater than 0.
     * @return the average value of the largest values in the pairs.
     */
   def maxAverage(ls: List[(Double, Double)]): Double = ???
 
   /**
-    * variance takes a support.List[Double] and calculates the squared distance
+    * variance takes a List[Double] and calculates the squared distance
     * of each value from the mean. This is the *variance*, as used in
     * statistics.
     * 1) Find the mean M of the input.
@@ -174,7 +174,7 @@ object Funcs {
     * 2) For each value V in the input, calculate (V - M)^2.
     * 3) Find the variance.
     * Which methods that we've already defined can you use? (At least one!)
-    * @param ls     : support.List[Double] a list of values, whose length is greater than 0.
+    * @param ls     : List[Double] a list of values, whose length is greater than 0.
     * @return the variance of the input.
     */
   def variance(ls: List[Double]): Double = ???
