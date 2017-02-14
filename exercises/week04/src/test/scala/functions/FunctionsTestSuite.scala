@@ -45,6 +45,10 @@ class FunctionsTestSuite extends FunSuite {
     assert(drop(List(1, 2, 3), 3) == List())
   }
 
+  test("drop returns empty list if list is empty") {
+    assert(drop(List(), 1) == List())
+  }
+
   test("init removes the last element") {
     assert(init(List("A", "B", "C", "D")) == List("A", "B", "C"))
   }
@@ -140,6 +144,10 @@ class FunctionsTestSuite extends FunSuite {
 
   test("flatten flattens the nested list") {
     assert(flatten(List(List(1, 2, 3), List(4, 5, 6))) == List(1, 2, 3, 4, 5, 6))
+  }
+
+  test("flatten flattens the nested lists") {
+    assert(flatten(List(List(), List(4, 5, 6))) == List(4, 5, 6))
   }
 
   // Map and Filter
