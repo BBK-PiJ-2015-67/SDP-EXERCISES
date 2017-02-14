@@ -163,11 +163,11 @@ class FunctionsTestSuite extends FunSuite {
     assert(filter((-5 to 5).toList)(_ > 0) == (1 to 5).toList)
   }
 
-//  test("flatMap maps and flattens") {
-//    assert(flatMap((1 to 5).toList)(x => (x to 5).toList) ==
-//      List(1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5, 5))
-//  }
-//
+  test("flatMap maps and flattens") {
+    assert(flatMap((1 to 5).toList)(x => (x to 5).toList) ==
+      List(1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5, 5))
+  }
+
 //  // Combined
 //
 //  test("maxAverage calculates the max average") {
