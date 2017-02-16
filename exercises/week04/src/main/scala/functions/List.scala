@@ -4,7 +4,7 @@ package support
 
 sealed trait List[+A]
 case object Nil extends List[Nothing]
-case class Cons[+A](head: A, tail: List[A]) extends List[A]
+case class Cons[+A] (head: A, tail: List[A]) extends List[A]
 
 object List {
   def apply[A] (el: A*): List[A] =
