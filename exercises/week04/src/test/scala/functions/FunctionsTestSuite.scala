@@ -175,6 +175,11 @@ class FunctionsTestSuite extends FunSuite {
     assert(maxAverage(list) == 13.0)
   }
 
+  test("maxAverage calculates the max average of negative and positive numbers") {
+    val list = List(-4.0, -2.0, -16.0, -12.0).map(x => (x, x + 10))
+    assert(maxAverage(list) == 1.5)
+  }
+
   test("variance calculates the correct variance") {
     val v = variance(List(1.0, 2.0, 3.0, 4.0, 5.0))
     assert(v == 2.0, "If you got 2.5, you divided by the wrong thing, probably.")
