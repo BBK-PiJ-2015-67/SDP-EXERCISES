@@ -180,6 +180,12 @@ class FunctionsTestSuite extends FunSuite {
     assert(maxAverage(list) == 1.5)
   }
 
+  // except for the fact that NaN != NaN... the below would work
+  // @TODO: how would we test this sort of edge case? I assume we'd work with Optionals instead which makes more sense
+  //  test("maxAverage calculates the max average of an empty list (should be NaN)") {
+  //    assert(maxAverage(List()) == Double.NaN)
+  //  }
+
   test("variance calculates the correct variance") {
     val v = variance(List(1.0, 2.0, 3.0, 4.0, 5.0))
     assert(v == 2.0, "If you got 2.5, you divided by the wrong thing, probably.")
