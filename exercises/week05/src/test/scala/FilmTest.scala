@@ -81,5 +81,10 @@ class FilmTest extends FunSpec {
     it("highestRating() should return the highest rating of 2 films") {
       assert(Film.highestRating(granTorino, thomasCrownAffair) == granTorino.imdbRating)
     }
+
+    it("oldestDirectorAtTheTime() should return the oldest director at the time of a film's release") {
+      val elder = Film.oldestDirectorAtTheTime(highPlainsDrifter, darkKnight)
+      assert(elder.name == eastwood.name)
+    }
   }
 }
