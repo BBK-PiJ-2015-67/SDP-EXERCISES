@@ -1,8 +1,10 @@
 package counter
 
 /**
-  * Created by lmignot on 16/02/2017.
+  * An adder provides an add method which adds the value of the adder
+  * to the argument and returns the sum
+  * @param amount The Adder's value
   */
-class Adder {
-
+class Adder(amount: Int) {
+  def add(in: Int): Int = in + amount
 }

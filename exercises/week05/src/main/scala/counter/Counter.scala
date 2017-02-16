@@ -33,4 +33,11 @@ case class Counter (count: Int = 0) {
     * @return The new Counter with a decremented value
     */
   def dec: Counter = dec()
+
+  /**
+    *
+    * @param adder The 'Adder' that will be used to adjust the Counter
+    * @return
+    */
+  def adjust (adder: Adder): Counter = this.copy(adder.add(count))
 }
