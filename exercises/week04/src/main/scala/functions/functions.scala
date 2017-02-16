@@ -177,12 +177,19 @@ object Funcs {
     * of each value from the mean. This is the *variance*, as used in
     * statistics.
     * 1) Find the mean M of the input.
-    *
     * 2) For each value V in the input, calculate (V - M)^2.
     * 3) Find the variance.
     * Which methods that we've already defined can you use? (At least one!)
     * @param ls     : List[Double] a list of values, whose length is greater than 0.
     * @return the variance of the input.
     */
-  def variance(ls: List[Double]): Double = ???
+  def variance(ls: List[Double]): Double = {
+    import scala.math.pow
+    // find the mean
+    val m = sum(ls) / length(ls)
+    // map the values
+    val sqrdDistances = map(ls)(i => pow(i - m, 2))
+    // find the average of the squared distances from the mean
+    sum(sqrdDistances) / length(sqrdDistances)
+  }
 }
