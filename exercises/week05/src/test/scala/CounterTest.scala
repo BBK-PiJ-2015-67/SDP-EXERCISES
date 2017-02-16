@@ -52,6 +52,10 @@ class CounterTest extends FunSpec {
     it(s"dec() should default to $One") {
       assert(Counter(Three).dec.count == Two)
     }
+
+    it("adjust should take an Adder and return a new Counter with the result of applying Adder") {
+      assert(Counter(One).adjust(new Adder(Five)).count == Six)
+    }
   }
 
 }
