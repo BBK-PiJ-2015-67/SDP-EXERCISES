@@ -69,5 +69,13 @@ class FilmTest extends FunSpec {
       assert(tcCopy.director.name != thomasCrownAffair.director.name)
       assert(tcCopy.imdbRating == thomasCrownAffair.imdbRating)
     }
+
+    it("apply() should return a new film") {
+      val gt = Film("Gran Torino", 2008, 8.2, eastwood)
+      assert(gt.name == granTorino.name)
+      assert(gt.yearOfRelease == granTorino.yearOfRelease)
+      assert(gt.imdbRating == granTorino.imdbRating)
+      assert(gt.director.name == granTorino.director.name)
+    }
   }
 }
