@@ -1,4 +1,5 @@
 import org.scalatest.FunSpec
+import counter._
 
 class CounterTest extends FunSpec {
   val MinusOne: Int = -1
@@ -8,21 +9,21 @@ class CounterTest extends FunSpec {
   val Thirteen: Int = 13
   val Fourteen: Int = 14
 
-  describe("A Counter") {
+  describe("A counter.Counter") {
     it("inc() should increment the counter") {
-      assert(Counter(One).inc.count == Two)
+      assert(new Counter(One).inc.count == Two)
     }
 
     it("dec() should decrement the counter") {
-      assert(Counter(Fourteen).dec.count == Thirteen)
+      assert(new Counter(Fourteen).dec.count == Thirteen)
     }
 
     it("inc() should work with negative values") {
-      assert(Counter(MinusTwo).inc.count == MinusOne)
+      assert(new Counter(MinusTwo).inc.count == MinusOne)
     }
 
     it("dec() should work with negative values") {
-      assert(Counter(MinusOne).dec.count == MinusTwo)
+      assert(new Counter(MinusOne).dec.count == MinusTwo)
     }
   }
 }
