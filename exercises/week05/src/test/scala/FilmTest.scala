@@ -39,5 +39,17 @@ class FilmTest extends FunSpec {
     it("isDirectedBy() should return if a film is directed by the provided director") {
       assert(!invictus.isDirectedBy(nolan))
     }
+
+    it("copy() should return an appropriately modified (or not) copy") {
+      val hpCopy = highPlainsDrifter.copy(name = "L’homme des hautes plaines")
+      val tcCopy = thomasCrownAffair.copy(yearOfRelease = 1968,
+        director = new Director("Norman", "Jewison", 1926))
+      assert(hpCopy.yearOfRelease == highPlainsDrifter.yearOfRelease)
+      assert(hpCopy.imdbRating == highPlainsDrifter.imdbRating)
+      assert(hpCopy.director.name == highPlainsDrifter.director.name)
+      assert(tcCopy.yearOfRelease != thomasCrownAffair.yearOfRelease)
+      assert(tcCopy.director.name != thomasCrownAffair.director.name)
+      assert(tcCopy.imdbRating == thomasCrownAffair.imdbRating)
+    }
   }
 }
