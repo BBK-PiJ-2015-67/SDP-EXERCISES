@@ -77,5 +77,9 @@ class FilmTest extends FunSpec {
       assert(gt.imdbRating == granTorino.imdbRating)
       assert(gt.director.name == granTorino.director.name)
     }
+
+    it("highestRating() should return the highest rating of 2 films") {
+      assert(Film.highestRating(granTorino, thomasCrownAffair) == granTorino.imdbRating)
+    }
   }
 }
