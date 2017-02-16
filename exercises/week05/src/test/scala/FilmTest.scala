@@ -29,6 +29,16 @@ class FilmTest extends FunSpec {
     it("should have the correct date of birth") {
       assert(eastwood.yearOfBirth == 1930)
     }
+
+    it("should have the correct full name") {
+      assert(eastwood.name == "Clint Eastwood")
+    }
+
+    it("apply() should return a new director") {
+      val ec = Director("Clint", "Eastwood", 1930)
+      assert(ec.name == "Clint Eastwood")
+      assert(ec.yearOfBirth == 1930)
+    }
   }
 
   describe("A Film") {
