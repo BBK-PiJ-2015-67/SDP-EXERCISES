@@ -167,9 +167,9 @@ object Funcs {
     * @return the average value of the largest values in the pairs.
     */
   def maxAverage(ls: List[(Double, Double)]): Double = {
-    // retrieve list containing largest value of each pair
-    val largestValues: List[Double] = map(ls)((x: Double, y: Double) => if (x < y) x else y)
-    sum(largestValues) / length(ls)
+    sum(map(ls)({
+      case (a, b) => if (a > b) a else b
+    })) / length(ls)
   }
 
   /**
