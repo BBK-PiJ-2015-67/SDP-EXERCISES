@@ -39,6 +39,14 @@ class FilmTest extends FunSpec {
       assert(ec.name == "Clint Eastwood")
       assert(ec.yearOfBirth == 1930)
     }
+
+    it("older() should return the oldest of 2 directors") {
+      val d1 = Director("John", "Doe", 1972)
+      val d2 = Director("Christopher", "Nolan", 1970)
+      val eldest = Director.older(d1, d2)
+      assert(eldest.name == d2.name)
+      assert(eldest.yearOfBirth == d2.yearOfBirth)
+    }
   }
 
   describe("A Film") {
