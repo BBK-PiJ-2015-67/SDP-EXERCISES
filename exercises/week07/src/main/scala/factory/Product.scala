@@ -4,6 +4,6 @@ package factory
   * @author lmignot
   */
 trait Product {
-  var name: String
-  var cost: Double
+  def getName: String
+  def getCost: Double
 }
