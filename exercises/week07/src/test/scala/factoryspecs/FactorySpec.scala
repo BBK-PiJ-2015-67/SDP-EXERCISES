@@ -18,5 +18,16 @@ class FactorySpec extends BaseSpec {
         p.getCost should be (0.0)
       }
     }
+
+    it("should return the correct Product") {
+      val creator: Creator = new ConcreteCreator
+      val toy: Product = creator.factory("toy")
+      val pasta: Product = creator.factory("food")
+      val wrench: Product = creator.factory("tool")
+
+      toy shouldBe a [Toy]
+      pasta shouldBe a [Food]
+      wrench shouldBe a [Tool]
+    }
   }
 }
