@@ -1,7 +1,7 @@
 package test
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.{FunSpec, GivenWhenThen, Matchers}
 
 /**
   * @author lmignot
   */
-class BaseSpec extends FunSpec with Matchers
+class BaseSpec extends FunSpec with Matchers with GivenWhenThen
