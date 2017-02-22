@@ -5,5 +5,6 @@ package factory
   */
 
 trait Creator {
+  def getInstance(): Product
   def getInstance(productType: String): Product
 }

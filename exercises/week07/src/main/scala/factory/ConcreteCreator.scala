@@ -5,7 +5,7 @@ package factory
   */
 class ConcreteCreator extends Creator {
 
-    def getInstance(): Product = new DefaultProduct("Default", 0.0)
+    override def getInstance(): Product = new DefaultProduct("Default", 0.0)
 
     override def getInstance(productType: String = ""): Product = productType match {
       case "toy" => new Toy("Transformer", 15.0)

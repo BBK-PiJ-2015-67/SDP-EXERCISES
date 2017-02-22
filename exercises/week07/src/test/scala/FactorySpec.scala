@@ -1,6 +1,5 @@
-package factoryspecs
-import test._
 import factory._
+import test._
 
 /**
   * @author lmignot
@@ -10,7 +9,7 @@ class FactorySpec extends BaseSpec {
   describe("A Factory") {
     it("should return a default Product") {
       val creator: Creator = new ConcreteCreator
-      val p: Product = creator.getInstance("")
+      val p: Product = creator.getInstance()
 
       p shouldBe a [DefaultProduct]
       p.getName should be ("Default")
