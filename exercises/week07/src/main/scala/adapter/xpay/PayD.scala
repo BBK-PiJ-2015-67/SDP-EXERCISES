@@ -1,4 +1,4 @@
-package xpay
+package adapter.xpay
 
 trait PayD {
   def getCustCardNo: String

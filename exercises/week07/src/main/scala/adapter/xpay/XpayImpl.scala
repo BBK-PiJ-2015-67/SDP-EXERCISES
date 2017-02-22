@@ -1,4 +1,4 @@
-package xpay
+package adapter.xpay
 
 class XpayImpl extends Xpay {
   private var creditCardNo: String = null
