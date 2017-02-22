@@ -57,8 +57,8 @@ class AdapterSpec extends BaseSpec {
       transaction.getAmount should be (Amt)
       transaction.getCustomerName should be (CustName)
       transaction.getCardCVVNo should be (Cvv)
-      transaction.getCardExpMonth should be(ExpMonth)
-      transaction.getCardExpYear should be(ExpYear)
+      transaction.getCardExpMonth should be (ExpMonth)
+      transaction.getCardExpYear should be (ExpYear)
       transaction.getCreditCardNo should be (CardNo)
     }
 
