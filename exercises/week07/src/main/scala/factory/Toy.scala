@@ -3,4 +3,7 @@ package factory
 /**
   * @author lmignot
   */
-class Toy(name: String, cost: Double) extends ConcreteProduct(name: String, cost: Double)
+class Toy extends ConcreteProduct {
+  setName("Transformer")
+  setCost(15.99)
+}

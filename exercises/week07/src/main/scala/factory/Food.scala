@@ -3,4 +3,7 @@ package factory
 /**
   * @author lmignot
   */
-class Food(name: String, cost: Double) extends ConcreteProduct(name: String, cost: Double)
+class Food extends ConcreteProduct {
+  setName("Pasta")
+  setCost(2.25)
+}
