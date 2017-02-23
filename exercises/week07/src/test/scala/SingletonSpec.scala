@@ -33,7 +33,6 @@ class SingletonSpec extends BaseSpec {
 
       And("And both references should have the same id")
       sg.getId should be (sg2.getId)
-
     }
   }
 }
