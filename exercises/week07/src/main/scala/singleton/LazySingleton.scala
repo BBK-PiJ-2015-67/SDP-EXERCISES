@@ -11,6 +11,10 @@ class LazySingleton private extends Singleton {
 }
 
 object LazySingleton {
-  private lazy val _instance = new LazySingleton
-  def getInstance: Singleton = _instance
+  private var _instance: Singleton = _
+
+  def getInstance: Singleton = {
+    if (_instance == null) _instance = new LazySingleton
+    _instance
+  }
 }
