@@ -15,7 +15,7 @@ class MulInstructionSpec extends BaseSpec {
   private final val AMT = 8
   private final val RES = AMT * AMT
 
-  describe("An ADD instruction") {
+  describe("A MUL instruction") {
 
     it("should initialise with the correct values") {
       Given("A MUL instruction")
@@ -39,45 +39,45 @@ class MulInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val ai: MulInstruction = MulInstruction(Label, R3, R1, R2)
+        val mul: MulInstruction = MulInstruction(Label, R3, R1, R2)
 
         When("The instruction's op registers are initialised with the expected values")
         m.regs(R1) = AMT
         m.regs(R2) = AMT
 
         And("The instruction is executed")
-        ai.execute(m)
+        mul.execute(m)
 
         Then("The result Machine register should have the correct value")
         m.regs(R3) should be (RES)
       }
 
-      it("should correctly sum the values given any valid Int value") {
+      it("should correctly multiply the values given any valid Int value") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val ai: MulInstruction = MulInstruction(Label, R3, R1, R2)
+        val mul: MulInstruction = MulInstruction(Label, R3, R1, R2)
 
         When("The instruction is executed")
-        ai.execute(m)
+        mul.execute(m)
 
         Then("The result Machine register should have the correct value")
         m.regs(R3) should be (ZERO)
       }
 
-      it("should correctly sum the values given the same register for arguments") {
+      it("should correctly multiply the values given the same register for arguments") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val ai: MulInstruction = MulInstruction(Label, R1, R1, R1)
+        val mul: MulInstruction = MulInstruction(Label, R1, R1, R1)
 
         When("The instruction's op register is initialised with the expected value")
         m.regs(R1) = AMT
 
         And("The instruction is executed")
-        ai.execute(m)
+        mul.execute(m)
 
         Then("The result Machine register should have the correct value")
         m.regs(R1) should be (RES)

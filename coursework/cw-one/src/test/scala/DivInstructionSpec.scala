@@ -1,4 +1,4 @@
-import sml.instructions.MulInstruction
+import sml.instructions.DivInstruction
 import sml.{Labels, Machine}
 
 /**
@@ -22,64 +22,61 @@ class DivInstructionSpec extends BaseSpec {
     it("should initialise with the correct values") {
       Given("A DIV instruction")
       When("The instruction is created")
-      val ai: DivInstruction = DivInstruction(Label, R3, R1, R2)
+      val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
 
       Then("The values should be correct")
-      ai.label should be (Label)
-      ai.opcode should be (OP)
-      ai.result should be (R3)
-      ai.op1 should be (R1)
-      ai.op2 should be (R2)
+      div.label should be (Label)
+      div.opcode should be (OP)
+      div.result should be (R3)
+      div.op1 should be (R1)
+      div.op2 should be (R2)
 
       And("toString() should be correct")
-      ai.toString() should be (s"${ai.label}: ${ai.opcode} ${ai.op1} / ${ai.op2} to ${ai.result}")
+      div.toString() should be (s"${div.label}: ${div.opcode} ${div.op1} / ${div.op2} to ${div.result}")
     }
 
     describe("Executing the instruction") {
-      it("should store the product of specified registers in the correct register") {
+      it("should store the quotient of specified registers in the correct register") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val ai: DivInstruction = DivInstruction(Label, R3, R1, R2)
+        val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
 
         When("The instruction's op registers are initialised with the expected values")
         m.regs(R1) = AMT1
         m.regs(R2) = AMT2
 
         And("The instruction is executed")
-        ai.execute(m)
+        div.execute(m)
 
         Then("The result Machine register should have the correct value")
         m.regs(R3) should be (RES)
       }
 
-      it("should correctly sum the values given any valid Int value") {
+      it(s"should throw an exception when dividing by $ZERO") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
-        And("A DIV instruction")
-        val ai: DivInstruction = DivInstruction(Label, R3, R1, R2)
+        When(s"A DIV instruction is created with $ZERO as the divisor")
+        val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
 
-        When("The instruction is executed")
-        ai.execute(m)
-
-        Then("The result Machine register should have the correct value")
-        m.regs(R3) should be (ZERO)
+        Then("An java.lang.ArithmeticException shoud be thrown")
+        a [java.lang.ArithmeticException] should be thrownBy (div.execute(m))
       }
 
-      it("should correctly sum the values given the same register for arguments") {
+      it("should correctly divide the values given the same register for arguments") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A DIV instruction")
-        val ai: DivInstruction = DivInstruction(Label, R1, R1, R1)
+        val div: DivInstruction = DivInstruction(Label, R1, R1, R1)
 
         When("The instruction's op register is initialised with the expected value")
         m.regs(R1) = AMT1
 
         And("The instruction is executed")
-        ai.execute(m)
+        div.execute(m)
 
         Then("The result Machine register should have the correct value")
         m.regs(R1) should be (ONE)

@@ -16,7 +16,7 @@ class SubInstructionSpec extends BaseSpec {
   private final val AMT2 = 36
   private final val RES = AMT1 - AMT2
 
-  describe("An SUB instruction") {
+  describe("A SUB instruction") {
 
     it("should initialise with the correct values") {
       Given("A SUB instruction")
@@ -35,7 +35,7 @@ class SubInstructionSpec extends BaseSpec {
     }
 
     describe("Executing the instruction") {
-      it("should sum the values of 2 registers and store the result in the correct register") {
+      it("should subtract the values of 2 registers and store the result in the correct register") {
         Given("A Machine")
         val m: Machine = new Machine(Labels(), Vector())
 
