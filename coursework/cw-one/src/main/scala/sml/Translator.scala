@@ -1,6 +1,6 @@
 package sml
 
-import sml.instructions.{AddInstruction, LinInstruction}
+import sml.instructions._
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -28,6 +28,10 @@ class Translator(fileName: String) {
         fields(1) match {
           case ADD =>
             program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case SUB =>
+            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case MUL =>
+            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
           case LIN =>
             program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
           case x =>

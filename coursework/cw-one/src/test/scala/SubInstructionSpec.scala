@@ -2,7 +2,7 @@ import sml.instructions.SubInstruction
 import sml.{Labels, Machine}
 
 /**
-  * Tests for the SUBInstruction class
+  * Tests for the SubInstruction class
   * @author lmignot
   */
 class SubInstructionSpec extends BaseSpec {
