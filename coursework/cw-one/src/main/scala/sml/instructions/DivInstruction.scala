@@ -9,7 +9,7 @@ case class DivInstruction(label: String, opcode: String, result: Int, op1: Int, 
     m.regs(result) = m.regs(op1) / m.regs(op2)
 
   override def toString(): String =
-    super.toString + " " + op1 + " / " + op2 + " to " + result
+    super.toString + s" $op1 / $op2 to $result"
 }
 
 object DivInstruction {
