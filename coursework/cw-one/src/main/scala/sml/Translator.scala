@@ -1,5 +1,7 @@
 package sml
 
+import sml.instructions.{AddInstruction, LinInstruction}
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -21,7 +23,7 @@ class Translator(fileName: String) {
     val lines = Source.fromFile(fileName).getLines
     for (line <- lines) {
       val fields = line.split(" ")
-      if (fields.length > 0) {
+      if (fields.nonEmpty) {
         labels.add(fields(0))
         fields(1) match {
           case ADD =>
