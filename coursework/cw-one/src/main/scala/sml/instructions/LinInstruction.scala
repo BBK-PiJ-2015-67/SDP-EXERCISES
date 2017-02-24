@@ -15,5 +15,5 @@ case class LinInstruction(label: String, opcode: String, register: Int, value: I
 
 object LinInstruction {
   def apply(label: String, register: Int, value: Int): Instruction =
-    new LinInstruction(label, "lin", register, value)
+    LinInstruction(label, "lin", register, value)
 }
