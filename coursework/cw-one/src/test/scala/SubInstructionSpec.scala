@@ -31,7 +31,7 @@ class SubInstructionSpec extends BaseSpec {
       sub.op2 should be (R2)
 
       And("toString() should be correct")
-      sub.toString() should be (s"${sub.label}: ${sub.opcode} ${sub.op1} - ${sub.op2} to ${sub.result}")
+      sub.toString() should be (s"${sub.label}: ${sub.opcode} ${sub.op1} - ${sub.op2} to ${sub.result} \n")
     }
 
     describe("Executing the instruction") {

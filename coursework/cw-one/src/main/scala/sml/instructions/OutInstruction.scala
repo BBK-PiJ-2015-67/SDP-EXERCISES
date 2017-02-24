@@ -9,11 +9,11 @@ case class OutInstruction (label: String, opcode: String, register: Int) extends
   override def execute(m: Machine): Unit = println(m.regs(register))
 
   override def toString: String =
-    super.toString + s" print contents of $register to console"
+    super.toString + s" print contents of $register to console\n"
 }
 
 object OutInstruction {
   def apply(label: String, result: Int): OutInstruction =
-    OutInstruction(label, "sub", result)
+    OutInstruction(label, "out", result)
 }
 

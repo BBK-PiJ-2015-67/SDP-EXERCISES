@@ -10,7 +10,7 @@ case class AddInstruction(label: String, opcode: String, result: Int, op1: Int, 
     m.regs(result) = m.regs(op1) + m.regs(op2)
 
   override def toString: String =
-    super.toString + s" $op1 + $op2 to $result"
+    super.toString + s" $op1 + $op2 to $result \n"
 }
 
 object AddInstruction {

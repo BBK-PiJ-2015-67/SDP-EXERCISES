@@ -32,7 +32,7 @@ class DivInstructionSpec extends BaseSpec {
       div.op2 should be (R2)
 
       And("toString() should be correct")
-      div.toString() should be (s"${div.label}: ${div.opcode} ${div.op1} / ${div.op2} to ${div.result}")
+      div.toString() should be (s"${div.label}: ${div.opcode} ${div.op1} / ${div.op2} to ${div.result} \n")
     }
 
     describe("Executing the instruction") {

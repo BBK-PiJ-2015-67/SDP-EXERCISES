@@ -30,7 +30,7 @@ class MulInstructionSpec extends BaseSpec {
       ai.op2 should be (R2)
 
       And("toString() should be correct")
-      ai.toString() should be (s"${ai.label}: ${ai.opcode} ${ai.op1} * ${ai.op2} to ${ai.result}")
+      ai.toString() should be (s"${ai.label}: ${ai.opcode} ${ai.op1} * ${ai.op2} to ${ai.result} \n")
     }
 
     describe("Executing the instruction") {
