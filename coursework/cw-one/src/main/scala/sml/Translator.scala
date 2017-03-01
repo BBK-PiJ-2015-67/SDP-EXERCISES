@@ -31,18 +31,16 @@ class Translator(fileName: String) {
           println(s"Unknown instruction ${fields(1)}")
         } else {
           val cls = clsOption.get
-          val cons = cls.getMethods.find(_.getName == "apply").get
-          val parameters =
-            fields
-              .filter(f => fields.indexOf(f) != 1)
-              .map {
-                case e if e.matches("[0-9]+") => e.toInt.asInstanceOf[Object]
-                case e => e
-              }
-          try {
-            program = program :+ cons.invoke(cls, parameters:_*).asInstanceOf[Instruction]
+          val cons = cls.getConstructors.toList.head
+          val args = fields.map(p => try {
+            p.toInt.asInstanceOf[Object]
           } catch {
-            case ex: IllegalArgumentException => println(s"Parameters did not match Instruction: ${cls.getSimpleName}")
+            case _: NumberFormatException => p
+          })
+          try {
+            program = program :+ cons.newInstance(args: _*).asInstanceOf[Instruction]
+          } catch {
+            case ex: IllegalArgumentException => println(s"Args did not match for instruction: ${cls.getSimpleName}")
           }
         }
       }
