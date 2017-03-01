@@ -26,23 +26,24 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {
         labels.add(fields(0))
-        fields(1) match {
-          case ADD =>
-            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case SUB =>
-            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case MUL =>
-            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case DIV =>
-            program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case OUT =>
-            program = program :+ OutInstruction(fields(0), fields(2).toInt)
-          case LIN =>
-            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
-          case BNZ =>
-            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
-          case x =>
-            println(s"Unknown instruction $x")
+        val clsOption = InstructionFactory.get(fields(1))
+        if (clsOption.isEmpty) {
+          println(s"Unknown instruction ${fields(1)}")
+        } else {
+          val cls = clsOption.get
+          val cons = cls.getMethods.find(_.getName == "apply").get
+          val parameters =
+            fields
+              .filter(f => fields.indexOf(f) != 1)
+              .map {
+                case e if e.matches("[0-9]+") => e.toInt.asInstanceOf[Object]
+                case e => e
+              }
+          try {
+            program = program :+ cons.invoke(cls, parameters:_*).asInstanceOf[Instruction]
+          } catch {
+            case ex: IllegalArgumentException => println(s"Parameters did not match Instruction: ${cls.getSimpleName}")
+          }
         }
       }
     }
