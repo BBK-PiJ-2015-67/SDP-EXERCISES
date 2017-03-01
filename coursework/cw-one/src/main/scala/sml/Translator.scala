@@ -6,14 +6,6 @@ import sml.instructions._
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
 class Translator(fileName: String) {
-  private final val ADD = "add"
-  private final val SUB = "sub"
-  private final val MUL = "mul"
-  private final val DIV = "div"
-  private final val OUT = "out"
-  private final val LIN = "lin"
-  private final val BNZ = "bnz"
-
   /**
     * translate the small program in the file into lab (the labels) and prog (the program)
     */
