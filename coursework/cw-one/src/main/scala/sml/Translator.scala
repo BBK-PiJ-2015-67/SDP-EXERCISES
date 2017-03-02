@@ -1,7 +1,5 @@
 package sml
 
-import sml.instructions._
-
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -31,7 +29,7 @@ class Translator(fileName: String) {
           try {
             program = program :+ cons.newInstance(args: _*).asInstanceOf[Instruction]
           } catch {
-            case ex: IllegalArgumentException => println(s"Args did not match for instruction: ${cls.getSimpleName}")
+            case _: IllegalArgumentException => println(s"Args did not match for instruction: ${cls.getSimpleName}")
           }
         }
       }
