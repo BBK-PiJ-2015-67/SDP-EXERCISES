@@ -1,5 +1,7 @@
 package sml
 
+import scala.util.Try
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -21,12 +23,8 @@ class Translator(fileName: String) {
           case f => f
         }
         val cons = InstructionFactory.get(fields(1)).map(x => x.getConstructors.toList.head)
-        if (cons.isDefined) {
-          try program = program :+ cons.get.newInstance(args: _*).asInstanceOf[Instruction]
-          catch {
-            case _: IllegalArgumentException => println(s"line ${fields(0)} has an incorrect number of arguments")
-          }
-        } else println(s"Unable to translate $line")
+        val inst = Try(cons.get.newInstance(args: _*).asInstanceOf[Instruction])
+        if (inst.isSuccess) program = program :+ inst.get else println(s"Unable to translate $line")
       }
     }
     new Machine(labels, program)
