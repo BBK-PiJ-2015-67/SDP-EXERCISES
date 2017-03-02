@@ -24,11 +24,10 @@ class Translator(fileName: String) {
         } else {
           val cls = clsOption.get
           val cons = cls.getConstructors.toList.head
-          val args = fields.map(p => try {
-            p.toInt.asInstanceOf[Object]
-          } catch {
-            case _: NumberFormatException => p
-          })
+          val args = fields.map {
+            case i if i.matches("\\d+") => new Integer(i)
+            case f => f
+          }
           try {
             program = program :+ cons.newInstance(args: _*).asInstanceOf[Instruction]
           } catch {
