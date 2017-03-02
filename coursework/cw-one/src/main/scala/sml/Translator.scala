@@ -16,26 +16,22 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {
         labels.add(fields(0))
-        val clsOption = InstructionFactory.get(fields(1))
-        if (clsOption.isEmpty) {
-          println(s"Unknown instruction ${fields(1)}")
-        } else {
-          val cls = clsOption.get
-          val cons = cls.getConstructors.toList.head
-          val args = fields.map {
-            case i if i.matches("\\d+") => new Integer(i)
-            case f => f
-          }
-          try {
-            program = program :+ cons.newInstance(args: _*).asInstanceOf[Instruction]
-          } catch {
-            case _: IllegalArgumentException => println(s"Args did not match for instruction: ${cls.getSimpleName}")
-          }
+        val args = fields.map {
+          case i if i.matches("\\d+") => new Integer(i)
+          case f => f
         }
+        val cons = InstructionFactory.get(fields(1)).map(x => x.getConstructors.toList.head)
+        if (cons.isDefined) {
+          try program = program :+ cons.get.newInstance(args: _*).asInstanceOf[Instruction]
+          catch {
+            case _: IllegalArgumentException => println(s"line ${fields(0)} has an incorrect number of arguments")
+          }
+        } else println(s"Unable to translate $line")
       }
     }
     new Machine(labels, program)
   }
+
 }
 
 object Translator {
