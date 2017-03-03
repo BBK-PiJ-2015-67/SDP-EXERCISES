@@ -1,0 +1,6 @@
+/**
+  * @author lmignot
+  */
+class AbstractFactorySpec {
+
+}
