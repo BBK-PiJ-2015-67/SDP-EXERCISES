@@ -13,8 +13,7 @@ class Translator(fileName: String) {
     val labels = m.labels
     var program = m.prog
     import scala.io.Source
-    val lines = Source.fromFile(fileName).getLines
-    for (line <- lines) {
+    for (line <- Source.fromFile(fileName).getLines) {
       val fields = line.split(" ")
       if (fields.nonEmpty && fields.length > 1) {
         labels.add(fields(0))
@@ -22,10 +21,10 @@ class Translator(fileName: String) {
           case n if n.matches("\\d+") => new Integer(n)
           case s => s
         }
-        val cons = InstructionFactory(fields(1))
+        val instruction = InstructionFactory(fields(1))
           .map(i => i.getConstructors.toList.head)
-        val inst = Try(cons.get.newInstance(args: _*).asInstanceOf[Instruction])
-        if (inst.isSuccess) program = program :+ inst.get else println(s"Unable to translate $line")
+          .map(_.newInstance(args: _*).asInstanceOf[Instruction])
+        if (instruction.isSuccess) program = program :+ instruction.get else println(s"Unable to translate $line")
       } else {
         println(s"Invalid input for line: $line")
       }
