@@ -1,7 +1,7 @@
 package observer
 
 trait Observer {
-  def update(desc: String)
+  def update(desc: String): String
 
   def subscribe()
 

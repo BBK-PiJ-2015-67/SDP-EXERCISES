@@ -6,6 +6,4 @@ trait Subject {
   def unSubscribeObserver(observer: Observer)
 
   def notifyObservers()
-
-  def subjectDetails: String
 }
