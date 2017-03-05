@@ -3,7 +3,7 @@ package decorator
 import java.text.DecimalFormat
 
 object TestDecoratorPattern {
-  private var dformat: DecimalFormat = new DecimalFormat("#.##")
+  private val dFormat: DecimalFormat = new DecimalFormat("#.##")
 
   def main(args: Array[String]) {
     var pizza: Pizza = new SimplyVegPizza
@@ -24,7 +24,7 @@ object TestDecoratorPattern {
   }
 
   private def print(pizza: Pizza) {
-    System.out.println("Desc: " + pizza.getDesc)
-    System.out.println("Price: " + dformat.format(pizza.getPrice))
+    println("Desc: " + pizza.getDesc)
+    println("Price: " + dFormat.format(pizza.getPrice))
   }
 }

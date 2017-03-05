@@ -1,11 +1,9 @@
 package decorator
 
-class GreenOlives(val pizza: Pizza) extends Pizza {
-  def getDesc: String = {
-    return null
-  }
+class GreenOlives(val pizza: Pizza) extends PizzaDecorator(pizza: Pizza) {
+  private val price: Double = 5.47
 
-  def getPrice: Double = {
-    return 0
-  }
+  override def getDesc: String = super.getDesc + s", Green olives ($price)"
+
+  override def getPrice: Double = super.getPrice + price
 }
