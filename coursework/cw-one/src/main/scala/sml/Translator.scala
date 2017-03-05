@@ -24,7 +24,7 @@ class Translator(fileName: String) {
         InstructionFactory(fields(1))
           .map(i => i.getConstructors.toList.head)
           .map(_.newInstance(args: _*).asInstanceOf[Instruction]) match {
-            case Success(ins) =>  program = program :+ ins
+            case Success(ins) => program = program :+ ins
             case Failure(_) => println(s"Unable to translate $line")
           }
       } else {
