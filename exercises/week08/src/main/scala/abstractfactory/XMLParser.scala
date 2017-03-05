@@ -1,7 +1,8 @@
 package abstractfactory
 
+/**
+  * @author SDP
+  */
 trait XMLParser {
-  def parse = ???
-
-  // TODO
+  def parse(s: String): String
 }
