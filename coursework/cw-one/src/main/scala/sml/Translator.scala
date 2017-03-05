@@ -1,6 +1,6 @@
 package sml
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -21,10 +21,12 @@ class Translator(fileName: String) {
           case n if n.matches("\\d+") => new Integer(n)
           case s => s
         }
-        val instruction = InstructionFactory(fields(1))
+        InstructionFactory(fields(1))
           .map(i => i.getConstructors.toList.head)
-          .map(_.newInstance(args: _*).asInstanceOf[Instruction])
-        if (instruction.isSuccess) program = program :+ instruction.get else println(s"Unable to translate $line")
+          .map(_.newInstance(args: _*).asInstanceOf[Instruction]) match {
+            case Success(ins) =>  program = program :+ ins
+            case Failure(_) => println(s"Unable to translate $line")
+          }
       } else {
         println(s"Invalid input for line: $line")
       }
