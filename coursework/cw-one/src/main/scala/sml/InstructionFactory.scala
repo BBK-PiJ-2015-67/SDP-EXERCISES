@@ -17,7 +17,8 @@ object InstructionFactory {
     * Retrieve the Instruction class that matches the opcode if available
     * @param opcode The type of instruction to get - i.e. "add"
     * @return A Try potentially containing the Class for the requested Instruction type
+    *         or a Failure
     */
-  def get(opcode: String): Try[Class[_]] =
+  def apply(opcode: String): Try[Class[_]] =
     Try(Class.forName(s"$ClsPrefix${opcode.capitalize}$ClsSuffix"))
 }

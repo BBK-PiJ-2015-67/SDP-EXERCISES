@@ -22,8 +22,7 @@ class Translator(fileName: String) {
           case n if n.matches("\\d+") => new Integer(n)
           case s => s
         }
-        val cons = InstructionFactory
-          .get(fields(1))
+        val cons = InstructionFactory(fields(1))
           .map(i => i.getConstructors.toList.head)
         val inst = Try(cons.get.newInstance(args: _*).asInstanceOf[Instruction])
         if (inst.isSuccess) program = program :+ inst.get else println(s"Unable to translate $line")
