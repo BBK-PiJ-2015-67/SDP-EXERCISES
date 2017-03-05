@@ -1,5 +1,5 @@
+package test
 import factory._
-import test.BaseSpec
 
 /**
   * @author lmignot

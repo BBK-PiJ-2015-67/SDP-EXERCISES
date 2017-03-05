@@ -1,6 +1,7 @@
+package test
 import adapter._
 import adapter.xpay.{PayD, PayDImpl, Xpay, XpayImpl}
-import test.BaseSpec
+
 
 /**
   * @author lmignot

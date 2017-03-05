@@ -1,4 +1,4 @@
-import test.BaseSpec
+package test
 import singleton._
 
 /**

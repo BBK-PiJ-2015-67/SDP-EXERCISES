@@ -1,5 +1,5 @@
+package test
 import observer.{CommentaryObject, Observer, SMSUsers}
-import test.BaseSpec
 
 import scala.collection.mutable.ListBuffer
 
