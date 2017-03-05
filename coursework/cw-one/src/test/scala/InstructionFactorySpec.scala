@@ -1,5 +1,4 @@
-import sml.{Instruction, InstructionFactory}
-import sml.instructions.AddInstruction
+import sml.InstructionFactory
 
 /**
   * @author lmignot

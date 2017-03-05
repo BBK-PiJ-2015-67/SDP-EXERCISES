@@ -16,20 +16,23 @@ class Translator(fileName: String) {
     val lines = Source.fromFile(fileName).getLines
     for (line <- lines) {
       val fields = line.split(" ")
-      if (fields.nonEmpty) {
+      if (fields.nonEmpty && fields.length > 1) {
         labels.add(fields(0))
         val args = fields.map {
-          case i if i.matches("\\d+") => new Integer(i)
-          case f => f
+          case n if n.matches("\\d+") => new Integer(n)
+          case s => s
         }
-        val cons = InstructionFactory.get(fields(1)).map(x => x.getConstructors.toList.head)
+        val cons = InstructionFactory
+          .get(fields(1))
+          .map(i => i.getConstructors.toList.head)
         val inst = Try(cons.get.newInstance(args: _*).asInstanceOf[Instruction])
         if (inst.isSuccess) program = program :+ inst.get else println(s"Unable to translate $line")
+      } else {
+        println(s"Invalid input for line: $line")
       }
     }
     new Machine(labels, program)
   }
-
 }
 
 object Translator {
