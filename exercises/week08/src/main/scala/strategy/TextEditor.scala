@@ -3,13 +3,18 @@ package strategy
 /**
   * Week 08 strategy pattern exercise
   *
-  * 1. Strategy pattern allows one to execute some algorithm or function
-  *    in different ways without having to modify the executing class
+  * Q1. Strategy pattern allows one to execute some algorithm or function
+  *    in different ways without having to modify the object's behaviour.
+  *    It also allows one to change the object's behaviour dynamically -
+  *    by just providing a new "strategy" to the object
   *    Given the TextEditor example, one could implement different String
   *    manipulations depending on requirements without surplus code in
   *    the TextEditor class
-  * 2. It is appropriate any time some specific algorithmic/functional
-  *    requirement may change at runtime
+  *
+  * Q2. It is appropriate any time some algorithmic/functional
+  *    requirement may change at runtime, or if we would otherwise have to
+  *    add behaviour to a parent class that is not relevant to some of
+  *    its sub-classes
   *
 */
 
