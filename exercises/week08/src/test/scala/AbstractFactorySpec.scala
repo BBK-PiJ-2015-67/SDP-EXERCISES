@@ -38,5 +38,13 @@ class AbstractFactorySpec extends BaseSpec {
       opt.isDefined should be (false)
     }
 
+    it("if no factory is available, and no parser is available should return None") {
+      val opt: Option[XMLParser] = ParserFactoryProducer
+        .getFactory("asdf")
+        .flatMap(_.getParserInstance("NYCORDER"))
+      opt shouldBe None
+      opt.isDefined should be (false)
+    }
+
   }
 }
