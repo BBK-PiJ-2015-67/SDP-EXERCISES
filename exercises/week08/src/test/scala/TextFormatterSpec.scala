@@ -2,7 +2,9 @@ import strategy.TextEditor
 import test.BaseSpec
 
 /**
-  * AbstractFactory tests
+  * TextFormatter tests
+  * Some tests for the TextEditor fulfilling "Strategy Pattern" exercise
+  * in week 8
   *
   * @author lmignot
   */
