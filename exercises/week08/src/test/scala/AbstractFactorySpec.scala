@@ -1,5 +1,5 @@
+package test
 import abstractfactory._
-import test.BaseSpec
 
 /**
   * AbstractFactory tests

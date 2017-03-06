@@ -1,5 +1,5 @@
+package test
 import strategy.TextEditor
-import test.BaseSpec
 
 /**
   * TextFormatter tests
