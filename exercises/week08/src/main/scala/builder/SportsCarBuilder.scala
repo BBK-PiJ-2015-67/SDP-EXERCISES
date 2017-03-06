@@ -1,21 +1,51 @@
 package builder
 
-// TODO
-
 object SportsCarBuilder extends CarBuilder {
-  override def buildBodyStyle: Unit = ???
+  private val car: Car = Car("SPORTS")
 
-  override def buildPower: Unit = ???
+  override def buildBodyStyle: CarBuilder = {
+    car.setBodyStyle("""
+    External dimensions:
+      overall length (inches): 192.3,
+      overall width (inches): 75.5,
+      overall height (inches): 54.2,
+      wheelbase (inches): 112.3,
+      front track (inches): 63.7,
+      rear track (inches): 64.1
+      and curb to curb turning circle (feet): 37.7""")
+    this
+  }
 
-  override def buildEngine: Unit = ???
+  override def buildPower: CarBuilder = {
+    car.setPower("323 hp @ 6,800 rpm; 278 ft lb of torque @ 4,800 rpm")
+    this
+  }
 
-  override def buildBreaks: Unit = ???
+  override def buildEngine: CarBuilder = {
+    car.setEngine("3.6L V 6 DOHC and variable valve timing")
+    this
+  }
 
-  override def buildSeats: Unit = ???
+  override def buildBreaks: CarBuilder = {
+    car.setBreaks("Four-wheel disc brakes: two ventilated. Electronic brake distribution. Stability control")
+    this
+  }
 
-  override def buildWindows: Unit = ???
+  override def buildSeats: CarBuilder = {
+    car.setSeats("Driver sports front seat with one power adjustments manual height," +
+      "front passenger seat sports front seat with one power adjustments")
+    this
+  }
 
-  override def buildFuelType: Unit = ???
+  override def buildWindows: CarBuilder = {
+    car.setWindows("Front windows with one-touch on two windows")
+    this
+  }
 
-  override def getCar: Car = ???
+  override def buildFuelType: CarBuilder = {
+    car.setFuelType("Petrol 17 MPG city, 28 MPG highway, 20 MPG combined and 380 mi. range")
+    this
+  }
+
+  override def getCar: Car = car
 }

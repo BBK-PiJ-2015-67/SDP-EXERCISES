@@ -1,19 +1,19 @@
 package builder
 
 trait CarBuilder {
-  def buildBodyStyle
+  def buildBodyStyle: CarBuilder
 
-  def buildPower
+  def buildPower: CarBuilder
 
-  def buildEngine
+  def buildEngine: CarBuilder
 
-  def buildBreaks
+  def buildBreaks: CarBuilder
 
-  def buildSeats
+  def buildSeats: CarBuilder
 
-  def buildWindows
+  def buildWindows: CarBuilder
 
-  def buildFuelType
+  def buildFuelType: CarBuilder
 
   def getCar: Car
 }

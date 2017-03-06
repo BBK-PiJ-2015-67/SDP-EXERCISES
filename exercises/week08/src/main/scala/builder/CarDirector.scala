@@ -1,8 +1,14 @@
 package builder
 
-// TODO
-
 case class CarDirector(carBuilder: CarBuilder) {
-  def build = ???
-
+  def build: CarBuilder = {
+    carBuilder
+      .buildBodyStyle
+      .buildEngine
+      .buildPower
+      .buildFuelType
+      .buildBreaks
+      .buildSeats
+      .buildWindows
+  }
 }

@@ -5,13 +5,11 @@ object TestBuilderPattern {
     var carBuilder: CarBuilder = SedanCarBuilder
     var director: CarDirector = CarDirector(carBuilder)
 
-    director.build
-    println(carBuilder.getCar)
+    println(director.build.getCar)
 
     carBuilder = SportsCarBuilder
     director = CarDirector(carBuilder)
 
-    director.build
-    println(carBuilder.getCar)
+    println(director.build.getCar)
   }
 }
