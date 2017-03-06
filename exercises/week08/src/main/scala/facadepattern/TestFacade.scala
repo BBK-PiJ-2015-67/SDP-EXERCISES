@@ -5,8 +5,8 @@ object TestFacade {
     val scheduleServer: ScheduleServer = ScheduleServerImpl()
     val facadeServer: ScheduleServerFacade = ScheduleServerFacade(scheduleServer)
     println("Start working......")
-    facadeServer.startServer
+    facadeServer.startServer()
     println("After work done.........")
-    facadeServer.stopServer
+    facadeServer.stopServer()
   }
 }
