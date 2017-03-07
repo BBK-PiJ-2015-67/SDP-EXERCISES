@@ -15,13 +15,13 @@ case class ScheduleServerImpl() extends ScheduleServer {
 
   override def releaseProcesses: Unit = println("releasing processes...")
 
-  override def destory: Unit = println("destroying...")
+  override def destroy: Unit = println("destroying...")
 
   override def destroySystemObjects: Unit = println("destroying system objects...")
 
-  override def destoryListeners: Unit = println("destroying listeners...")
+  override def destroyListeners: Unit = println("destroying listeners...")
 
-  override def destoryContext: Unit = println("destroying context...")
+  override def destroyContext: Unit = println("destroying context...")
 
   override def shutdown: Unit = println("shutting down...")
 }
