@@ -1,10 +1,8 @@
 package sml.instructions
 
-import sml.{Instruction, Machine}
+import sml.Machine
 
-trait Add extends Instruction
-
-case class AddInstruction(label: String, opcode: String, result: Int, op1: Int, op2: Int) extends Add {
+case class AddInstruction(label: String, opcode: String, result: Int, op1: Int, op2: Int) extends MathInstruction {
 
   override def execute(m: Machine): Unit =
     m.regs(result) = m.regs(op1) + m.regs(op2)
@@ -14,6 +12,6 @@ case class AddInstruction(label: String, opcode: String, result: Int, op1: Int, 
 }
 
 object AddInstruction {
-  def apply(label: String, result: Int, op1: Int, op2: Int): AddInstruction =
-    AddInstruction(label, "add", result, op1, op2)
+  def apply(label: String, result: Int, op1: Int, op2: Int): MathInstruction =
+    new AddInstruction(label, "add", result, op1, op2)
 }

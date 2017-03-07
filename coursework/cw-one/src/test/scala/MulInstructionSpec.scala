@@ -20,17 +20,17 @@ class MulInstructionSpec extends BaseSpec {
     it("should initialise with the correct values") {
       Given("A MUL instruction")
       When("The instruction is created")
-      val ai: MulInstruction = MulInstruction(Label, R3, R1, R2)
+      val mul = MulInstruction(Label, R3, R1, R2)
 
       Then("The values should be correct")
-      ai.label should be (Label)
-      ai.opcode should be (OP)
-      ai.result should be (R3)
-      ai.op1 should be (R1)
-      ai.op2 should be (R2)
+      mul.label should be (Label)
+      mul.opcode should be (OP)
+      mul.result should be (R3)
+      mul.op1 should be (R1)
+      mul.op2 should be (R2)
 
       And("toString() should be correct")
-      ai.toString() should be (s"${ai.label}: ${ai.opcode} ${ai.op1} * ${ai.op2} to ${ai.result} \n")
+      mul.toString() should be (s"${mul.label}: ${mul.opcode} ${mul.op1} * ${mul.op2} to ${mul.result} \n")
     }
 
     describe("Executing the instruction") {
@@ -39,7 +39,7 @@ class MulInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val mul: MulInstruction = MulInstruction(Label, R3, R1, R2)
+        val mul = MulInstruction(Label, R3, R1, R2)
 
         When("The instruction's op registers are initialised with the expected values")
         m.regs(R1) = AMT
@@ -57,7 +57,7 @@ class MulInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val mul: MulInstruction = MulInstruction(Label, R3, R1, R2)
+        val mul = MulInstruction(Label, R3, R1, R2)
 
         When("The instruction is executed")
         mul.execute(m)
@@ -71,7 +71,7 @@ class MulInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val mul: MulInstruction = MulInstruction(Label, R1, R1, R1)
+        val mul = MulInstruction(Label, R1, R1, R1)
 
         When("The instruction's op register is initialised with the expected value")
         m.regs(R1) = AMT

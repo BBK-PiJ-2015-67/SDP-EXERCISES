@@ -1,8 +1,11 @@
 package sml.instructions
 
-import sml.{Instruction, Machine}
+import sml.Machine
 
-trait Lin extends Instruction
+trait Lin extends Instruction {
+  val register: Int
+  val value: Int
+}
 
 case class LinInstruction(label: String, opcode: String, register: Int, value: Int) extends Lin {
 
@@ -14,6 +17,6 @@ case class LinInstruction(label: String, opcode: String, register: Int, value: I
 }
 
 object LinInstruction {
-  def apply(label: String, register: Int, value: Int): Instruction =
-    LinInstruction(label, "lin", register, value)
+  def apply(label: String, register: Int, value: Int): Lin =
+    new LinInstruction(label, "lin", register, value)
 }

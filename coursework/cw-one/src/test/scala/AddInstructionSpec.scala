@@ -20,7 +20,7 @@ class AddInstructionSpec extends BaseSpec {
     it("should initialise with the correct values") {
       Given("An ADD instruction")
       When("The instruction is created")
-      val ai: AddInstruction = AddInstruction(Label, R3, R1, R2)
+      val ai = AddInstruction(Label, R3, R1, R2)
 
       Then("The values should be correct")
       ai.label should be (Label)
@@ -39,7 +39,7 @@ class AddInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("An ADD instruction")
-        val ai: AddInstruction = AddInstruction(Label, R3, R1, R2)
+        val ai = AddInstruction(Label, R3, R1, R2)
 
         When("The instruction's op registers are initialised with the expected values")
         m.regs(R1) = AMT
@@ -57,7 +57,7 @@ class AddInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("An ADD instruction")
-        val ai: AddInstruction = AddInstruction(Label, R3, R1, R2)
+        val ai = AddInstruction(Label, R3, R1, R2)
 
         When("The instruction is executed")
         ai.execute(m)
@@ -71,7 +71,7 @@ class AddInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("An ADD instruction")
-        val ai: AddInstruction = AddInstruction(Label, R1, R1, R1)
+        val ai = AddInstruction(Label, R1, R1, R1)
 
         When("The instruction's op register is initialised with the expected value")
         m.regs(R1) = AMT

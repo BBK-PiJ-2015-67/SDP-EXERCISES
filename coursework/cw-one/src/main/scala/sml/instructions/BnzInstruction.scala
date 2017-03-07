@@ -1,8 +1,11 @@
 package sml.instructions
 
-import sml.{Instruction, Machine}
+import sml.Machine
 
-trait Bnz extends Instruction
+trait Bnz extends Instruction {
+  val reg: Int
+  val target: String
+}
 
 case class BnzInstruction(label: String, opcode: String, reg: Int, target: String) extends Bnz {
 
@@ -17,6 +20,6 @@ case class BnzInstruction(label: String, opcode: String, reg: Int, target: Strin
 }
 
 object BnzInstruction {
-  def apply(label: String, reg: Int, tgt: String): BnzInstruction =
-    BnzInstruction(label, "bnz", reg, tgt)
+  def apply(label: String, reg: Int, tgt: String): Bnz =
+    new BnzInstruction(label, "bnz", reg, tgt)
 }

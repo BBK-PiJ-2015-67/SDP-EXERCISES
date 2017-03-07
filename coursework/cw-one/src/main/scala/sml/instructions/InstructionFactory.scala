@@ -1,4 +1,4 @@
-package sml
+package sml.instructions
 
 import scala.util.Try
 

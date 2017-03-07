@@ -1,4 +1,6 @@
-package sml
+package sml.instructions
+
+import sml.Machine
 
 /**
   * Instruction trait for SML Machine

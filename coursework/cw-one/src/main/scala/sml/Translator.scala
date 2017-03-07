@@ -1,5 +1,7 @@
 package sml
 
+import sml.instructions.{Instruction, InstructionFactory}
+
 import scala.util.{Failure, Success, Try}
 
 /*

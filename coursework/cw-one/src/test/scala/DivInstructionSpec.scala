@@ -22,7 +22,7 @@ class DivInstructionSpec extends BaseSpec {
     it("should initialise with the correct values") {
       Given("A DIV instruction")
       When("The instruction is created")
-      val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
+      val div = DivInstruction(Label, R3, R1, R2)
 
       Then("The values should be correct")
       div.label should be (Label)
@@ -41,7 +41,7 @@ class DivInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A MUL instruction")
-        val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
+        val div = DivInstruction(Label, R3, R1, R2)
 
         When("The instruction's op registers are initialised with the expected values")
         m.regs(R1) = AMT1
@@ -59,7 +59,7 @@ class DivInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         When(s"A DIV instruction is created with $ZERO as the divisor")
-        val div: DivInstruction = DivInstruction(Label, R3, R1, R2)
+        val div = DivInstruction(Label, R3, R1, R2)
 
         Then("An java.lang.ArithmeticException shoud be thrown")
         a [java.lang.ArithmeticException] should be thrownBy (div.execute(m))
@@ -70,7 +70,7 @@ class DivInstructionSpec extends BaseSpec {
         val m: Machine = new Machine(Labels(), Vector())
 
         And("A DIV instruction")
-        val div: DivInstruction = DivInstruction(Label, R1, R1, R1)
+        val div = DivInstruction(Label, R1, R1, R1)
 
         When("The instruction's op register is initialised with the expected value")
         m.regs(R1) = AMT1
