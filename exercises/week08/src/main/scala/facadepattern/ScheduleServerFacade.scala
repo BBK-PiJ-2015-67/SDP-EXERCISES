@@ -1,7 +1,7 @@
 package facadepattern
 
 case class ScheduleServerFacade(scheduleServer: ScheduleServer) {
-  def stopServer(): Unit = {
+  def startServer(): Unit = {
     scheduleServer.startBooting
     scheduleServer.readSystemConfigFile
     scheduleServer.init
@@ -10,12 +10,12 @@ case class ScheduleServerFacade(scheduleServer: ScheduleServer) {
     scheduleServer.createSystemObjects
   }
 
-  def startServer(): Unit = {
+  def stopServer(): Unit = {
     scheduleServer.releaseProcesses
-    scheduleServer.destory
+    scheduleServer.destroy
     scheduleServer.destroySystemObjects
-    scheduleServer.destoryListeners
-    scheduleServer.destoryContext
+    scheduleServer.destroyListeners
+    scheduleServer.destroyContext
     scheduleServer.shutdown
   }
 
