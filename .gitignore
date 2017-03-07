@@ -21,3 +21,6 @@ project/plugins/project/
 out/
 .idea/
 *.iml
+
+# template folder for exercises
+_template/
