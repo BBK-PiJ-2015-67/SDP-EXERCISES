@@ -3,6 +3,9 @@ package akkanotes.messaging.actormsg1
 import akka.actor.{ActorSystem, Props}
 import akkanotes.messaging.protocols.TeacherProtocol.QuoteRequest
 
+/**
+  * @author Arun Manivannan
+  */
 object StudentSimulatorApp extends App {
 
   //Initialize the ActorSystem

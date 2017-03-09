@@ -3,6 +3,9 @@ package akkanotes.messaging.actormsg1
 import akka.actor.Actor
 import akkanotes.messaging.protocols.TeacherProtocol.{QuoteRequest, QuoteResponse}
 
+/**
+  * @author Arun Manivannan
+  */
 class TeacherActor extends Actor {
 
   val quotes = List(
