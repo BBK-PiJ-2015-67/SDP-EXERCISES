@@ -9,7 +9,7 @@ libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
-libraryDependencies += "org.mockito" % "mockito-core" % "2.7.13" % "test"
+libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.5.0" % "test"
 
 // Need to pull this in for reflective capabilities.
 libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value

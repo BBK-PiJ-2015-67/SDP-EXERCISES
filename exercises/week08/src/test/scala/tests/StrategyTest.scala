@@ -1,4 +1,5 @@
-package test
+package tests
+
 import strategy.TextEditor
 
 /**
@@ -8,7 +9,7 @@ import strategy.TextEditor
   *
   * @author lmignot
   */
-class TextFormatterSpec extends BaseSpec {
+class StrategyTest extends BaseTest {
   private val TextA = "Testing text in caps formatter"
   private val TextB = "T3st1ng 50m3 g33k 5tuff"
   private val TextAUC = TextA.toUpperCase

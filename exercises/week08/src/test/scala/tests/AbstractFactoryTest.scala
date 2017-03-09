@@ -1,11 +1,11 @@
-package test
+package tests
 import abstractfactory._
 
 /**
   * AbstractFactory tests
   * @author lmignot
   */
-class AbstractFactorySpec extends BaseSpec {
+class AbstractFactoryTest extends BaseTest {
   describe("An abstract factory") {
     it("abstract factory should return the appropriate factory if available") {
       val opt: Option[AbstractParserFactory] = ParserFactoryProducer.getFactory("NYCFactory")

@@ -1,6 +1,6 @@
-package test
+package tests
+
 import facadepattern._
-import org.mockito.Mockito._
 
 /**
   * Practice using Mockito for testing
@@ -9,7 +9,7 @@ import org.mockito.Mockito._
   *
   * @author lmignot
   */
-class FacadeSpec extends BaseSpec {
+class FacadeTest extends BaseTest {
 
   describe("ScheduleServerFacade") {
     it("should call the required methods when startServer() is called") {
@@ -19,16 +19,17 @@ class FacadeSpec extends BaseSpec {
       val facade = ScheduleServerFacade(scheduleServer)
 
       When("startServer() is called")
-      facade.startServer()
-
       Then("the expected methods should have been called on the scheduleServer")
-      verify(scheduleServer).startBooting
-      verify(scheduleServer).readSystemConfigFile
-      verify(scheduleServer).init
-      verify(scheduleServer).initializeContext
-      verify(scheduleServer).initializeListeners
-      verify(scheduleServer).createSystemObjects
-      verifyNoMoreInteractions(scheduleServer)
+      inSequence {
+        (scheduleServer.startBooting _).expects()
+        (scheduleServer.readSystemConfigFile _).expects()
+        (scheduleServer.init _).expects()
+        (scheduleServer.initializeContext _).expects()
+        (scheduleServer.initializeListeners _).expects()
+        (scheduleServer.createSystemObjects _).expects()
+      }
+
+      facade.startServer()
     }
 
     it("should call the required methods when stopServer() is called") {
@@ -38,16 +39,17 @@ class FacadeSpec extends BaseSpec {
       val facade = ScheduleServerFacade(scheduleServer)
 
       When("stopServer() is called")
-      facade.stopServer()
-
       Then("the expected methods should have been called on the scheduleServer")
-      verify(scheduleServer).releaseProcesses
-      verify(scheduleServer).destroy
-      verify(scheduleServer).destroySystemObjects
-      verify(scheduleServer).destroyListeners
-      verify(scheduleServer).destroyContext
-      verify(scheduleServer).shutdown
-      verifyNoMoreInteractions(scheduleServer)
+      inSequence {
+        (scheduleServer.releaseProcesses _).expects()
+        (scheduleServer.destroy _).expects()
+        (scheduleServer.destroySystemObjects _).expects()
+        (scheduleServer.destroyListeners _).expects()
+        (scheduleServer.destroyContext _).expects()
+        (scheduleServer.shutdown _).expects()
+      }
+
+      facade.stopServer()
     }
   }
 }
