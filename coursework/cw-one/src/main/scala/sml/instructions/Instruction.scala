@@ -3,25 +3,26 @@ package sml.instructions
 import sml.Machine
 
 /**
-  * Instruction trait for SML Machine
+  * Instruction trait definition
   */
 trait Instruction {
 
   /**
-    * The Label for this instruction
+    * Label of instruction
     */
   val label: String
 
   /**
     * The operation code this instruction performs
+    * eg. "add"
     */
   val opcode: String
 
   override def toString: String = label + ": " + opcode
 
   /**
-    * Execute this instruction on the provided Machine
-    * @param m The Machine to execute the instruction on
+    * Execute instruction on the provided Machine
+    * @param m The Machine on which to execute instruction
     */
   def execute(m: Machine): Unit
 }

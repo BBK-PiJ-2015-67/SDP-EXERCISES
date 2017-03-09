@@ -1,24 +1,23 @@
 package sml.instructions
 
 /**
-  * A MathInstruction extends on an Instruction
-  * by adding further fields required for a typical
-  * Math operation on the sml machine
+  * Extends Instruction, adds fields required for a typical
+  * math operation on the sml machine
   */
 trait MathInstruction extends Instruction {
   /**
-    * The register the result of the math operation
-    * will be stored in
+    * Register address where the result of the math operation
+    * will be stored
     */
   val result: Int
 
   /**
-    * The first operand of the instruction
+    * First operand of the math operation
     */
   val op1: Int
 
   /**
-    * The second operand of the instruction
+    * Second operand of the math operation
     */
   val op2: Int
 }

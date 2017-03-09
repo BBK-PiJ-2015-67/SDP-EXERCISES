@@ -3,10 +3,7 @@ package sml.instructions
 import scala.util.Try
 
 /**
-  * InstructionFactory
-  * I've used an object - can't think of a reason why this should not be a Singleton
- *
-  * @author lmignot
+  * Attempt to construct a specified instruction class
   */
 object InstructionFactory {
 

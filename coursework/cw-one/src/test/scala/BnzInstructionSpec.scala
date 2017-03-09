@@ -27,11 +27,11 @@ class BnzInstructionSpec extends BaseSpec {
       Then("The values should be correct")
       bnz.label should be (Label1)
       bnz.opcode should be (Op)
-      bnz.reg should be (Reg1)
+      bnz.register should be (Reg1)
       bnz.target should be (Tgt)
 
       And("toString() should be correct")
-      bnz.toString() should be (s"${bnz.label}: ${bnz.opcode} if the value in register ${bnz.reg} is $Zero execute ${bnz
+      bnz.toString() should be (s"${bnz.label}: ${bnz.opcode} if the value in register ${bnz.register} is $Zero execute ${bnz
         .target}\n")
     }
 
