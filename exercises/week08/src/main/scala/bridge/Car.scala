@@ -2,9 +2,13 @@ package bridge
 
 abstract class Car(product: Product, carType: String) {
 
-  def assemble
+  def assemble: String = s"Assembling ${product.productName}"
 
-  def produceProduct
+  def produceProduct: String = {
+    val result: String = s"Producing ${product.productName}"
+    println(result)
+    result
+  }
 
-  def printDetails
+  def printDetails: String
 }

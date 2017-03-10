@@ -1,8 +1,12 @@
 package bridge
 
 case class CentralLocking(s: String) extends Product {
-// TODO
-  override def productName: String = ???
 
-  override def produce: Unit = ???
+  override def productName: String = s
+
+  override def produce: String = {
+    val result: String = s"Producing $s System"
+    println(result)
+    result
+  }
 }
