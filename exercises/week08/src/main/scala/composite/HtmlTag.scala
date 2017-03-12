@@ -1,21 +1,17 @@
 package composite
 
-import java.util.List
-
 abstract class HtmlTag(tagName: String) {
-  def getTagName: String = tagName
+  def setStartTag(tag: String): Unit
 
-  def setStartTag(tag: String)
+  def setEndTag(tag: String): Unit
 
-  def setEndTag(tag: String)
+  def setTagBody(body: String): Unit
 
-  def setTagBody(tagBody: String) = ???
+  def generateHtml: String
 
-  def addChildTag(htmlTag: HtmlTag) = ???
+  def addChildTag(htmlTag: HtmlTag): Unit = ???
 
-  def removeChildTag(htmlTag: HtmlTag) = ???
+  def removeChildTag(htmlTag: HtmlTag): Unit = ???
 
   def getChildren: List[HtmlTag] = ???
-
-  def generateHtml
 }
