@@ -7,13 +7,13 @@ import scala.util.Try
   */
 object InstructionFactory {
 
-  private final val ClsPrefix: String = "sml.instructions."
-  private final val ClsSuffix: String = "Instruction"
+  private val ClsPrefix: String = "sml.instructions."
+  private val ClsSuffix: String = "Instruction"
 
   /**
-    * Retrieve the Instruction class that matches the opcode if available
-    * @param opcode The type of instruction to get - i.e. "add"
-    * @return A Try potentially containing the Class for the requested Instruction type
+    * Retrieve the Class that matches the opcode if available
+    * @param opcode The type of instruction to get - eg. "add"
+    * @return A Try, potentially containing the Class for the requested Instruction type
     *         or a Failure
     */
   def apply(opcode: String): Try[Class[_]] =

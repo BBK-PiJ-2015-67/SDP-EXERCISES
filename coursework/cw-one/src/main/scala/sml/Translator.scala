@@ -2,7 +2,7 @@ package sml
 
 import sml.instructions.{Instruction, InstructionFactory}
 
-import scala.util.{Failure, Success, Try}
+import scala.util.{Failure, Success}
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -24,9 +24,9 @@ class Translator(fileName: String) {
           case s => s
         }
         InstructionFactory(fields(1))
-          .map(i => i.getConstructors.toList.head)
+          .map(_.getConstructors.toList.head)
           .map(_.newInstance(args: _*).asInstanceOf[Instruction]) match {
-            case Success(ins) => program = program :+ ins
+            case Success(ins) => program :+= ins
             case Failure(_) => println(s"Unable to translate $line")
           }
       } else {
