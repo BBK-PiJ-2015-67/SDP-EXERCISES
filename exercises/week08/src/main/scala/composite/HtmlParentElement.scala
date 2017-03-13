@@ -21,7 +21,7 @@ case class HtmlParentElement(tagName: String) extends HtmlTag(tagName) {
 
   override def setTagBody(body: String): Unit = tagBody = body
 
-  override def addChildTag(htmlTag: HtmlTag): Unit = children = children :+ htmlTag
+  override def addChildTag(htmlTag: HtmlTag): Unit = children :+= htmlTag
 
   override def removeChildTag(htmlTag: HtmlTag): Unit = children = children.filter(_ != htmlTag)
 
