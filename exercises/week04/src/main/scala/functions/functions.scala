@@ -1,5 +1,6 @@
 package functions
 
+import list._
 import scala.annotation.tailrec
 
 object Funcs {
