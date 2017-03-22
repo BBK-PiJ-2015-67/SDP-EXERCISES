@@ -11,13 +11,13 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("Tail throws exception on empty List") {
-    assertThrows[IllegalArgumentException] {
+    intercept[IllegalArgumentException] {
       tail(List())
     }
   }
 
   test("Tail throws exception on Nil List") {
-    assertThrows[IllegalArgumentException] {
+    intercept[IllegalArgumentException] {
       tail(Nil)
     }
   }
@@ -28,10 +28,6 @@ class FunctionsTestSuite extends FunSuite {
 
   test("setHead with empty list returns a new list with one element") {
     assert(setHead(List(), "X") == List("X"))
-  }
-
-  test("setHead with Nil list returns new list with one added element") {
-    assert(setHead(Nil, 1) == List(1))
   }
 
   test("drop removes N elements from the front of the list") {
@@ -68,7 +64,7 @@ class FunctionsTestSuite extends FunSuite {
 
   // Folding
   test("foldLeft computes the correct value") {
-    assert(foldLeft(List("H,e,l,l,o"), "")(_ + _) == "Hello")
+    assert(foldLeft(List("H","e","l","l","o"), "")(_ + _) == "Hello")
   }
 
   test("foldLeft computes the correct value given an empty list") {
@@ -112,7 +108,7 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("length calculates the length") {
-    assert(length(List("H,e,l,l,o")) == 5)
+    assert(length(List("H","e","l","l","o")) == 5)
   }
 
   test("length of empty List is 0") {
@@ -128,7 +124,7 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("reverse reverses the list") {
-    assert(reverse(List("H,e,l,l,o")) == List("o,l,l,e,H"))
+    assert(reverse(List("H","e","l","l","o")) == List("o","l","l","e","H"))
   }
 
   test("reverse reverses the list of Ints") {
@@ -165,8 +161,8 @@ class FunctionsTestSuite extends FunSuite {
   }
 
   test("flatMap maps and flattens") {
-//    assert(flatMap(List(List(1, 2, 3, 4, 5), List(2,3,4,5), List(3,4,5), List(4,5), List(5))) ==
-//      List(1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5, 5))
+    assert(flatMap(List(1, 2, 3, 4, 5))(x => List(x, x + 20)) ==
+      List(1, 21, 2, 22, 3, 23, 4, 24, 5, 25))
   }
 
   // Combined
@@ -181,11 +177,10 @@ class FunctionsTestSuite extends FunSuite {
     assert(maxAverage(list) == 1.5)
   }
 
-  // except for the fact that NaN != NaN... the below would work
-  // @TODO: how would we test this sort of edge case? I assume we'd work with Optionals instead which makes more sense
-  //  test("maxAverage calculates the max average of an empty list (should be NaN)") {
-  //    assert(maxAverage(List()) == Double.NaN)
-  //  }
+  // how would we test this sort of edge case given NaN != NaN
+  ignore("maxAverage calculates the max average of an empty list (should be NaN)") {
+    assert(maxAverage(List()) == Double.NaN)
+  }
 
   test("variance calculates the correct variance") {
     val v = variance(List(1.0, 2.0, 3.0, 4.0, 5.0))
