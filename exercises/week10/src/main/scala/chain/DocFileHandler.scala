@@ -1,9 +1,9 @@
 package chain
 
-case class DocFileHandler(s: String) extends Handler {
-  override def setHandler(handler: Handler): Unit = ???
+case class DocFileHandler(s: String) extends
+  FileHandler(s, Vector("doc", "docx", "rtf")) {}
 
-  override def process(file: File): Unit = ???
-
-  override def getHandlerName(): String = ???
+object DocFileHandler {
+  def apply(s: String, handler: Handler): Handler =
+    DocFileHandler(s).setHandler(handler)
 }

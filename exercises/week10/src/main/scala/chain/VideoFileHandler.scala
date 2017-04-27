@@ -1,9 +1,10 @@
 package chain
 
-case class VideoFileHandler(s: String) extends Handler {
-  override def setHandler(handler: Handler): Unit = ???
+case class VideoFileHandler(s: String) extends
+  FileHandler(s, Vector("video", "mp4", "mpg", "mkv", "mov", "m4v")) {}
 
-  override def process(file: File): Unit = ???
-
-  override def getHandlerName(): String = ???
+object VideoFileHandler {
+  def apply(s: String, handler: Handler): Handler =
+    VideoFileHandler(s).setHandler(handler)
 }
+

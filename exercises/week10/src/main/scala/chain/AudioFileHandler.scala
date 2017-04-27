@@ -1,9 +1,9 @@
 package chain
 
-case class AudioFileHandler(s: String) extends Handler {
-  override def setHandler(handler: Handler): Unit = ???
+case class AudioFileHandler(s: String) extends
+  FileHandler(s, Vector("audio", "mp3", "wav")) {}
 
-  override def process(file: File): Unit = ???
-
-  override def getHandlerName(): String = ???
+object AudioFileHandler {
+  def apply(s: String, handler: Handler): Handler =
+    AudioFileHandler(s).setHandler(handler)
 }

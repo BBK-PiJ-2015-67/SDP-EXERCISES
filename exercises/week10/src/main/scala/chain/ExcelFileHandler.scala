@@ -1,9 +1,9 @@
 package chain
 
-case class ExcelFileHandler(s: String) extends Handler {
-  override def setHandler(handler: Handler): Unit = ???
+case class ExcelFileHandler(s: String) extends
+  FileHandler(s, Vector("xls", "xlsx", "csv")) {}
 
-  override def process(file: File): Unit = ???
-
-  override def getHandlerName(): String = ???
+object ExcelFileHandler {
+  def apply(s: String, handler: Handler): Handler =
+    ExcelFileHandler(s).setHandler(handler)
 }

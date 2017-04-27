@@ -1,9 +1,9 @@
 package chain
 
-case class ImageFileHandler(s: String) extends Handler {
-  override def setHandler(handler: Handler): Unit = ???
+case class ImageFileHandler(s: String) extends
+  FileHandler(s, Vector("jpg", "png", "gif", "webp")) {}
 
-  override def process(file: File): Unit = ???
-
-  override def getHandlerName(): String = ???
+object ImageFileHandler {
+  def apply(s: String, handler: Handler): Handler =
+    ImageFileHandler(s).setHandler(handler)
 }
