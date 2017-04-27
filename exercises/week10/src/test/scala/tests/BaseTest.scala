@@ -1,6 +1,5 @@
 package tests
 
-import org.scalatest.mockito.MockitoSugar
 import org.scalatest.{FunSpec, GivenWhenThen, Matchers}
 
 /**
