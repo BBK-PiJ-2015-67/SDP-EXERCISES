@@ -6,4 +6,4 @@ import org.scalatest.{FunSpec, GivenWhenThen, Matchers}
 /**
   * @author lmignot
   */
-trait BaseTest extends FunSpec with Matchers with GivenWhenThen with MockitoSugar
+trait BaseTest extends FunSpec with Matchers with GivenWhenThen
