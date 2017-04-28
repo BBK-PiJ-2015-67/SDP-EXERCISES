@@ -3,10 +3,7 @@ package interpreter
 object ExpressionUtils {
 
   def isOperator(s: String): Boolean = s match {
-    case "+" => true
-    case "-" => true
-    case "*" => true
-    case "/" => true
+    case "+" | "-" | "*" | "/" => true
     case _ => false
   }
 
