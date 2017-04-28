@@ -1,6 +1,6 @@
 package interpreter
 
-class Product(private val leftExpression: Expression,
+case class Product(private val leftExpression: Expression,
               private val rightExpression: Expression)
     extends Expression {
 

@@ -1,6 +1,6 @@
 package interpreter
 
-class Add(private val leftExpression: Expression,
+case class Add(private val leftExpression: Expression,
           private val rightExpression: Expression)
     extends Expression {
 
