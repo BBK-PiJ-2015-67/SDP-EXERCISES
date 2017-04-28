@@ -1,5 +1,5 @@
 package command
 
 trait Job {
-    def run
+  def run
 }

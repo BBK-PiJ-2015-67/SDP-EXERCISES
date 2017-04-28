@@ -1,5 +1,5 @@
 package command
 
-case class Email() {
-    def sendEmail() = println("Sending email.......")
-} 
+class Email {
+    def sendEmail(): Unit = println("Sending email...")
+}
