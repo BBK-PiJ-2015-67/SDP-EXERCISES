@@ -3,22 +3,25 @@ package prototype
 object TestPrototypePattern extends App {
     var userAccessControl: AccessControl =
       AccessControlProvider.getAccessControlObject("USER")
-    var user = new User("User A", "USER Level", userAccessControl)
+    val userA = new User("User A", "USER Level", AccessControlProvider.getAccessControlObject("USER"))
     println("************************************")
-    println(user)
+    println(userA)
     
     userAccessControl = AccessControlProvider.getAccessControlObject("USER")
-    user = new User("User B", "USER Level", userAccessControl)
+    val userB = new User("User B", "USER Level", userAccessControl)
 
-    println("Changing access control of: " + user.userName)
-    
-    user.accessControl.access = "READ REPORTS"
-    println(user)
+    println("Changing access control of: " + userB.userName)
+
+    userB.accessControl.access = "READ REPORTS"
+    println(userB)
+    println("************************************")
+    println("verify user a's access was not affected by user b's change, and that a copy was indeed made")
+    println(userA)
     println("************************************")
     
     val managerAccessControl: AccessControl =
       AccessControlProvider.getAccessControlObject("MANAGER")
-    user = new User("User C", "MANAGER Level", managerAccessControl)
-    println(user)
+    val userC = new User("User C", "MANAGER Level", managerAccessControl)
+    println(userC)
 }
 
