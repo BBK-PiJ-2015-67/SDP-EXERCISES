@@ -4,9 +4,11 @@ import java.util.Iterator
 
 class ShapeIterator(private var shapes: Array[Shape]) extends Iterator[Shape] {
 
-  override def hasNext(): Boolean = ???
+  private var iterator = shapes.iterator
 
-  override def next(): Shape = ???
+  override def hasNext: Boolean = iterator.hasNext
 
-  override def remove(): Unit = ???
+  override def next(): Shape = iterator.next()
+
+  override def remove(): Unit = iterator = iterator.drop(1)
 }
