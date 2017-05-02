@@ -19,11 +19,9 @@ object TestMediator extends App {
     
     button.press()
     
-    println(
-      "******************************************************************************")
+    println("******************************************************************************")
     
-    mediator =
-      new DenimMediator(machine, heater, motor, sensor, soilRemoval, valve)
+    mediator = new DenimMediator(machine, heater, motor, sensor, soilRemoval, valve)
     button.setMediator(mediator)
     machine.setMediator(mediator)
     heater.setMediator(mediator)
