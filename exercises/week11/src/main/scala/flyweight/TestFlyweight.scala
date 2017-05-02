@@ -29,4 +29,13 @@ object TestFlyweight extends App {
   code = Code("RUBY Code2...")
   platform = PlatformFactory.getPlatformInstance("RUBY")
   platform.execute(code)
+
+  code = Code("SCALA Code...")
+  platform = PlatformFactory.getPlatformInstance("SCALA")
+  platform.execute(code)
+  println("-" * 20)
+
+  code = Code("SCALA Code2...")
+  platform = PlatformFactory.getPlatformInstance("SCALA")
+  platform.execute(code)
 }

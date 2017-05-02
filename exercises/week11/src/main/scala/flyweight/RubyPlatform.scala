@@ -1,8 +1,8 @@
 package flyweight
 
-class ScalaPlatform extends Platform {
+class RubyPlatform extends Platform {
 
-  println("ScalaPlatform object created")
+  println("RubyPlatform object created")
 
   override def execute(code: Code): Unit =
     println(s"Compiling and executing ${code.code}")
