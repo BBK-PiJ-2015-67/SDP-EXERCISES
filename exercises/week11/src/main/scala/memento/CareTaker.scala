@@ -1,16 +1,16 @@
 package memento
 
-import java.util.HashMap
-import java.util.Map
+import scala.collection.immutable.HashMap
+
 
 case class CareTaker() {
 
-  private val savepointStorage: Map[String, Memento] =
-    new HashMap[String, Memento]()
+  private var savepointStorage: Map[String, Memento] = new HashMap()
 
-  def saveMemento(memento: Memento, savepointName: String): Unit = ???
+  def saveMemento(memento: Memento, savepointName: String): Unit =
+    savepointStorage = savepointStorage + (savepointName -> memento)
 
-  def getMemento(savepointName: String): Memento = ???
+  def getMemento(savepointName: String): Memento = savepointStorage(savepointName)
 
-  def clearSavepoints(): Unit = ???
+  def clearSavepoints(): Unit = savepointStorage = new HashMap()
 }
