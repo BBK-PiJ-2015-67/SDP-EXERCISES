@@ -4,5 +4,8 @@ import java.rmi.Remote
 import java.rmi.RemoteException
 
 trait ReportGenerator extends Remote {
-  def generateDailyReport(): String
+  // Looked up declaring a method that throws an exception in Scala here:
+  // http://alvinalexander.com/scala/how-to-declare-scala-methods-throws-exceptions
+  @throws(classOf[RemoteException])
+  def generateDailyReport: String
 }
