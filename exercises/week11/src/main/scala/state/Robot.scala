@@ -8,17 +8,17 @@ case class Robot() extends RoboticState {
 
   var state: RoboticState = roboticOn
 
-  override def walk(): Unit = {
-    state.walk()
+  override def walk: String = {
+    val res = state.walk
     state = roboticStandby
+    res
   }
 
-  override def cook(): Unit = {
-    state.cook()
+  override def cook: String = {
+    val res = state.cook
     state = roboticStandby
+    res
   }
 
-  override def off(): Unit = {
-    state.off()
-  }
+  override def off: String = state.off
 }

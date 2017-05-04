@@ -2,16 +2,21 @@ package state
 
 case class RoboticOn(r: Robot) extends RoboticState {
 
-  def walk(): Unit = println("Walking...")
-
-  def cook(): Unit = {
-    r.state = r.roboticCook
-    println("Cooking...")
+  def walk: String = {
+    println(RoboticStates.IsWalking)
+    RoboticStates.IsWalking
   }
 
-  def off(): Unit = {
+  def cook: String = {
+    r.state = r.roboticCook
+    println(RoboticStates.IsCooking)
+    RoboticStates.IsCooking
+  }
+
+  def off: String = {
     r.state = r.roboticOff
-    println("Robot is switched off")
+    println(RoboticStates.SwitchOff)
+    RoboticStates.SwitchOff
   }
 
 }
