@@ -1,7 +1,7 @@
 package visitor
 
 object TestVisitorPattern extends App {
-  println("Befor visitor......... \n")
+  println("Before visitor......... \n")
 
   var parentTag: HtmlTag = HtmlParentElement("<html>")
 
