@@ -1,9 +1,6 @@
 package tests
 import chain._
 
-/**
-  * @author lmignot
-  */
 class ChainOfResponsibilityTest extends BaseTest {
 
   private lazy val AudioHandlerName = "Audio Handler"

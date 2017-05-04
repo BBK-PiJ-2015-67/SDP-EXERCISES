@@ -13,9 +13,10 @@ object AccessControlProvider {
     ("VP", AccessControl("VP", "MODIFY REPORTS"))
   )
 
-  def getAccessControlObject(controlLevel: String): AccessControl = map(controlLevel) match {
-    case ac: AccessControl => ac.copy(ac.controlLevel, ac.access)
-    case _ => AccessControl("ANONYMOUS", "ACCESS DENIED")
-  }
+  def getAccessControlObject(controlLevel: String): AccessControl =
+    map.get(controlLevel) match {
+      case Some(ac) => ac.copy(ac.controlLevel, ac.access)
+      case None => AccessControl("ANONYMOUS", "ACCESS DENIED")
+    }
 
 }

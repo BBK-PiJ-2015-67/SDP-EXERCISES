@@ -1,12 +1,13 @@
 package visitor
 
 case class StyleVisitor() extends Visitor {
-  private lazy val StyleSuffix = " style='width:58px;'>"
+  private lazy val ParentWidth = 58
+  private lazy val ElWidth = 46
 
-  override def visit(element: HtmlElement): Unit = applyStyle(element)
-  override def visit(parentElement: HtmlParentElement): Unit = applyStyle(parentElement)
+  override def visit(element: HtmlElement): Unit = applyWidth(element, ElWidth)
+  override def visit(parentElement: HtmlParentElement): Unit = applyWidth(parentElement, ParentWidth)
 
-  private def applyStyle(el: HtmlTag): Unit = {
-    el.setStartTag(el.getStartTag.filter(_ != '>') + StyleSuffix)
+  private def applyWidth(el: HtmlTag, w: Int): Unit = {
+    el.setStartTag(el.getStartTag.filter(_ != '>') + s" style='width:${w}px;'>")
   }
 }

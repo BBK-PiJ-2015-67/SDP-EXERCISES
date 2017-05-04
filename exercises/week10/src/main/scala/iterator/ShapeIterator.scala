@@ -4,7 +4,7 @@ import java.util.Iterator
 
 class ShapeIterator(private var shapes: Array[Shape]) extends Iterator[Shape] {
 
-  private var iterator = shapes.iterator
+  private var iterator = shapes.toIterator
 
   override def hasNext: Boolean = iterator.hasNext
 
