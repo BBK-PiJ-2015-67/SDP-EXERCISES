@@ -1,11 +1,9 @@
 package proxy.virtualproxy
 
-import scala.collection.mutable.ListBuffer
-
 class ContactListProxyImpl extends ContactList {
 
-  private var contactList: ContactList = ???
+  private lazy val contactList: ContactList = ContactListImpl()
 
-  override def employeeList: ListBuffer[Employee] = ???
+  override def employeeList: Vector[Employee] = contactList.employeeList
 
 }

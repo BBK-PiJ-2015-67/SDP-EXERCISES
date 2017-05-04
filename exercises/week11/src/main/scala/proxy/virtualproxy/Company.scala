@@ -1,10 +1,10 @@
 package proxy.virtualproxy
 
 case class Company(
-  var companyName: String,
-  var companyAddress: String,
-  var companyContactNo: String,
-  var contactList: ContactList
+  companyName: String,
+  companyAddress: String,
+  companyContactNo: String,
+  contactList: ContactList
 ) {
   println("Company object created...")
 }
