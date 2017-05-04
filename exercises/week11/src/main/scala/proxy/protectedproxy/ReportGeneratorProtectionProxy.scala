@@ -3,12 +3,11 @@ package proxy.protectedproxy
 class ReportGeneratorProtectionProxy(var staff: Staff)
   extends ReportGeneratorProxy {
 
-  var reportGenerator: ReportGenerator = ???
+  var reportGenerator: ReportGenerator = ReportGeneratorImpl()
 
-  override def generateDailyReport(): String =
+  override def generateDailyReport: String =
     if (staff.isOwner) {
-      // YOUR CODE GOES HERE AND REPLACES ""
-      ""
+      reportGenerator.generateDailyReport
     } else {
       "Not Authorized to view report."
     }

@@ -1,13 +1,13 @@
 package proxy.protectedproxy
 
 class Owner extends Staff {
-  var isOwner: Boolean = true
+  private var reportGenerator: ReportGeneratorProxy = _
 
-  private var reportGenerator: ReportGeneratorProxy = ???
+  override def isOwner: Boolean = true
 
   override def setReportGenerator(
     reportGenerator: ReportGeneratorProxy
-  ): Unit = ???
+  ): Unit = this.reportGenerator = reportGenerator
 
-  def generateDailyReport(): String = ???
+  def generateDailyReport: String = reportGenerator.generateDailyReport
 }
