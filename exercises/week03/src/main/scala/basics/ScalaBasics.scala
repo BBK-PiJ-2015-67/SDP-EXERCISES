@@ -173,7 +173,13 @@ object ScalaBasics {
    * @param cc 0 or more characters
    * @return the sum of the ASCII integers corresponding with the character.
    */
-  //def sumChars(cc: Char*): Int = ???
+  def sumChars(cc: Char*): Int = {
+    var result = 0
+    for (i <- cc) {
+      result = result + i.toInt
+    }
+    result
+  }
 
   /**
    * Counts the number of space delimited words in the provided array of strings.
