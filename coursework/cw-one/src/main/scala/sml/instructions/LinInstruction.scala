@@ -29,7 +29,7 @@ case class LinInstruction(label: String, opcode: String, register: Int, value: I
     * @see Instruction#toString()
     */
   override def toString: String = {
-    super.toString + " register " + register + " value is " + value + "\n"
+    super.toString + s" register $register value is $value \n"
   }
 }
 

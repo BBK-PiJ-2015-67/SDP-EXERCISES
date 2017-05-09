@@ -6,14 +6,14 @@ import sml.{Labels, Machine}
   * @author lmignot
   */
 class AddInstructionSpec extends BaseSpec {
-  private final val Label = "L1"
-  private final val OP = "add"
-  private final val R1 = 1
-  private final val R2 = 2
-  private final val R3 = 3
-  private final val ZERO = 0
-  private final val AMT = 72
-  private final val RES = AMT * 2
+  private val Label = "L1"
+  private val OP = "add"
+  private val R1 = 1
+  private val R2 = 2
+  private val R3 = 3
+  private val ZERO = 0
+  private val AMT = 72
+  private val RES = AMT * 2
 
   describe("An ADD instruction") {
 

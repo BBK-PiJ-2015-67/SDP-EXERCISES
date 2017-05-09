@@ -6,16 +6,16 @@ import sml.{Labels, Machine}
   * @author lmignot
   */
 class DivInstructionSpec extends BaseSpec {
-  private final val Label = "L1"
-  private final val OP = "div"
-  private final val R1 = 1
-  private final val R2 = 2
-  private final val R3 = 3
-  private final val ZERO = 0
-  private final val ONE = 1
-  private final val AMT1 = 12
-  private final val AMT2 = 3
-  private final val RES = AMT1 / AMT2
+  private val Label = "L1"
+  private val OP = "div"
+  private val R1 = 1
+  private val R2 = 2
+  private val R3 = 3
+  private val ZERO = 0
+  private val ONE = 1
+  private val AMT1 = 12
+  private val AMT2 = 3
+  private val RES = AMT1 / AMT2
 
   describe("A DIV instruction") {
 

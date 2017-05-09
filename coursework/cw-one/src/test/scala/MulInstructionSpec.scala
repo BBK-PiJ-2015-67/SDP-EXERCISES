@@ -6,14 +6,14 @@ import sml.{Labels, Machine}
   * @author lmignot
   */
 class MulInstructionSpec extends BaseSpec {
-  private final val Label = "L1"
-  private final val OP = "mul"
-  private final val R1 = 1
-  private final val R2 = 2
-  private final val R3 = 3
-  private final val ZERO = 0
-  private final val AMT = 8
-  private final val RES = AMT * AMT
+  private val Label = "L1"
+  private val OP = "mul"
+  private val R1 = 1
+  private val R2 = 2
+  private val R3 = 3
+  private val ZERO = 0
+  private val AMT = 8
+  private val RES = AMT * AMT
 
   describe("A MUL instruction") {
 

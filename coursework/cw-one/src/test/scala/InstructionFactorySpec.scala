@@ -15,7 +15,7 @@ class InstructionFactorySpec extends BaseSpec {
       cls.isSuccess should be (true)
     }
 
-    it("should, if no Class exists for the requested instruction, return None") {
+    it("should, if no Class exists for the requested instruction, return a Failure") {
       Given("InstructionFactory")
       When("an instruction that does not exist is requested")
       val cls = InstructionFactory("asdf")

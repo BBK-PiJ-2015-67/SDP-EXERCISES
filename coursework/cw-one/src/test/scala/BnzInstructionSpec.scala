@@ -6,16 +6,16 @@ import sml.{Labels, Machine}
   * @author lmignot
   */
 class BnzInstructionSpec extends BaseSpec {
-  private final val Label1 = "L1"
-  private final val Label2 = "L2"
-  private final val Label3 = "L3"
-  private final val Op = "bnz"
-  private final val Reg1 = 1
-  private final val Reg2 = 2
-  private final val Reg3 = 3
-  private final val Tgt = "L1"
-  private final val Zero = 0
-  private final val Seven = 7
+  private val Label1 = "L1"
+  private val Label2 = "L2"
+  private val Label3 = "L3"
+  private val Op = "bnz"
+  private val Reg1 = 1
+  private val Reg2 = 2
+  private val Reg3 = 3
+  private val Tgt = "L1"
+  private val Zero = 0
+  private val Seven = 7
 
   describe("A BNZ instruction") {
 

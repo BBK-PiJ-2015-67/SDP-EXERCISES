@@ -6,15 +6,15 @@ import sml.{Labels, Machine}
   * @author lmignot
   */
 class SubInstructionSpec extends BaseSpec {
-  private final val Label = "L1"
-  private final val OP = "sub"
-  private final val R1 = 1
-  private final val R2 = 2
-  private final val R3 = 3
-  private final val ZERO = 0
-  private final val AMT1 = 78
-  private final val AMT2 = 36
-  private final val RES = AMT1 - AMT2
+  private val Label = "L1"
+  private val OP = "sub"
+  private val R1 = 1
+  private val R2 = 2
+  private val R3 = 3
+  private val ZERO = 0
+  private val AMT1 = 78
+  private val AMT2 = 36
+  private val RES = AMT1 - AMT2
 
   describe("A SUB instruction") {
 
