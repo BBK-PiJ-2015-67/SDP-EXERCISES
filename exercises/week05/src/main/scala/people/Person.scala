@@ -9,11 +9,13 @@ case class Person (firstName: String, lastName: String)
 
 object Person {
   /**
-    * Given a String containing a full name, returns a new Person
+    * Given a String containing a space-separated name,
+    * returns a new Person
+    *
     * @param fullName The full name of the Person
     */
   def apply(fullName: String): Person = {
-    val nameParts = fullName.split(" ")
-    new Person(nameParts(0), nameParts(1))
+    val parts = fullName.split(" ")
+    Person(parts(0), if (parts.length == 2) parts(1) else "")
   }
 }
