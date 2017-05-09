@@ -6,13 +6,17 @@ import scala.annotation.tailrec
   * Credit where it's due
   * sources for this partial implementation of a List
   *
-  * Scala source code
-  * FP in Scala
-  * Module slides
+  * Scala source code: https://github.com/scala/scala
+  * FP in Scala https://github.com/fpinscala/fpinscala
+  * Module slides (Moodle)
   */
 
 /**
-  * List containing elements of type A
+  * List containing elements of type A (covariant)
+  *
+  * A List contains a head element, and a tail which is itself a List
+  * containing a head and a tail. An empty list is handled by [[Nil]],
+  * defined below
   */
 sealed trait List[+A] {
   def head: A
@@ -59,7 +63,7 @@ sealed trait List[+A] {
 }
 
 /**
-  * Empty List
+  * An Empty List
   */
 case object Nil extends List[Nothing] {
   override def head: Nothing =

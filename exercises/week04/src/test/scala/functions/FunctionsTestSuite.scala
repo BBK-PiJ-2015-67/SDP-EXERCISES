@@ -177,7 +177,7 @@ class FunctionsTestSuite extends FunSuite {
     assert(maxAverage(list) == 1.5)
   }
 
-  // how would we test this sort of edge case given NaN != NaN
+  // how would we test this sort of edge case given NaN != NaN?
   ignore("maxAverage calculates the max average of an empty list (should be NaN)") {
     assert(maxAverage(List()) == Double.NaN)
   }
